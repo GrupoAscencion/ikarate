@@ -10,13 +10,13 @@ const toolbar = props => (
                <DrawerToggleButton click={props.drawerClickHandler}/>
             </div>
             <div className="toolbar_logo"><a href="/" >iKarate</a></div>
-            <div className="spacer"></div>
+            <div className="spacer">{props.loggedInUser}</div>
             <div className="toolbar_navigation-items">
                 <ul >
                 <li><a>Inicio </a></li>
-                <li><a>Entrar</a></li>
+                <li><a onClick={props.signinGoogle}>Entrar</a></li>
                 <li><a>Nosotros</a></li>
-                <li><a>Salir</a></li>
+                <li><a onClick={props.signOutGoogle}>Salir</a></li>
                 </ul>
             </div>
         </nav>

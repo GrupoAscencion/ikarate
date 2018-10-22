@@ -13,8 +13,7 @@ import Students from './Components/Students';
 import Payments from './Components/Payments';
 import Schools from './Components/Schools';
 import Error from './Components/Error';
-import StudentsTable from './Components/Students/StudentsTable';
-
+import StudentsCatalog from './Components/Students/Catalogo';
 
 class App extends Component {
 
@@ -31,6 +30,7 @@ class App extends Component {
     this.database = this.app.database().ref().child('escuelas/Nombre');
     this.provider = new firebase.auth.GoogleAuthProvider();
     this.GoogleSignIn = this.GoogleSignIn.bind(this);
+    this.GoogleSignOut = this.GoogleSignOut.bind(this);
   }
 
   componentDidMount() {
@@ -120,29 +120,23 @@ class App extends Component {
     }
     return (
       <div style={{ height: '100%' }}  >
-        <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+        <Toolbar drawerClickHandler={this.drawerToggleClickHandler} 
+        signinGoogle={this.GoogleSignIn} 
+        loggedInUser={this.state.display} 
+        signOutGoogle={this.GoogleSignOut}/>
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
         <main style={{ marginTop: '75px', }}>
           <p>
-            <button onClick={() => this.GoogleSignIn()}>
-              Google login
-            </button>
-            <button onClick={() => this.GoogleSignOut()}>
-              Google logout
-            </button>
-            <button onClick={() => this.SaveData()}>
-              Grabar Datos
-            </button>
 
             <BrowserRouter>
               <Switch>
                 <Route path="/" component={Home} exact />
                 <Route path="/Payments" component={Payments} />
                 <Route path="/Schools" component={Schools} />
-                <Route path="/Students" component={Students} />
-                <Route path="/table" component={StudentsTable} />
+                <Route path="/Students" component={StudentsCatalog} />
                 <Route component={Error} />
+
               </Switch>
             </BrowserRouter></p>
         </main>
