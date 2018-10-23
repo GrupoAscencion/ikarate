@@ -199,7 +199,7 @@ class FormaEstudiante extends React.Component {
                         <tr>
                             <td>
                                 <button onClick={() => this.SaveData()}>
-                                    guardar
+                                    Guardar
                                 </button>
                             </td>
                         </tr>
