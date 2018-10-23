@@ -21,6 +21,7 @@ class StudentsCatalog extends React.Component {
     return (
       <div>
         <FormaEstudiante/>
+        <br></br>
         <StudentsTable/>
       </div>
     );

@@ -41,6 +41,13 @@ SaveData(){
     return firebase.database().ref().update(updates)
     .then(()=>{
       console.log('Grabado')
+      this.setState({        
+        name:'',
+        age:'',
+        weigth:'',
+        belt:'1',
+        school:'1',
+      })
     });
       
   }
@@ -84,7 +91,7 @@ SaveData(){
                 <td >
                 <input className="text-input" 
                     name="age"
-                    type="text"
+                    type="number"
                     onChange={this.handleInputChange}
                     value={this.state.age}
                   />
@@ -154,7 +161,6 @@ SaveData(){
             </tbody>
         </table>
 
-        <button onClick={this.loadData}>Refresh</button>
       </div>
     );
   }

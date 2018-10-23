@@ -92,26 +92,6 @@ class App extends Component {
     this.setState({ sideDrawerOpen: false })
   }
 
-  SaveData() {
-    var newPostKey = firebase.database().ref().child('escuelas/Escuela/estudiantes/estudiante').push().key;
-    const miRegistro = {
-      Nombre: 'Juan Jose Navarro ramirez',
-      Direccion: 'Bronce 19',
-    }
-
-    var updates = {};
-
-    updates['escuelas/Escuela/estudiantes/estudiante' + newPostKey] = miRegistro;
-    console.log(miRegistro);
-
-    return firebase.database().ref().update(updates)
-      .then(() => {
-        console.log('Grabado')
-      });
-
-  }
-
-
   render() {
     let backdrop;
 
