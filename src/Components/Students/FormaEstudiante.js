@@ -105,7 +105,7 @@ SaveData(){
                 <td >
                 <input className="text-input" 
                     name="weigth"
-                    type="text"
+                    type="number"
                     onChange={this.handleInputChange}
                     value={this.state.weigth}
                   />
