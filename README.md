@@ -1,9 +1,76 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Below you will find some information on how to perform common tasks.<br>
-You can find the most recent version of this guide [here](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md).
+## Definicion del proyecto
+Casos de uso :
 
-## Table of Contents
+- Catalogo de Alumnos
+-- Llenar forma de inscripción
+-- Datos del alumno
+-- Nombre ( Apellidos, nombre
+-- Fecha de nacimiento
+-- Ocupacion
+-- Domicilio
+--- Calle y numero
+--- Telefono
+
+- Datos medicos
+-- Peso
+-- Estatura
+-- Talla
+-- Tipo de sangre
+-- Alergias y padecimientos
+-- Tipo de parto
+-- Semanas de gestacion
+-- Gateo
+-- Camino a la edad de ?
+- Familiares (Padre o tutor (2))
+-- Nombre
+-- Domicilio
+-- Telefono
+--- Casa
+--- Trabajo
+--- Movil
+-- Correo electronico
+-- Ocupacion
+- Referencias
+-- Por que se inscribe al karate
+-- Objetivos a realizar 
+-- Cómo se enteró de la escuela
+-- Opinion 
+--- Maestro
+--- Instalaciones
+--- Ubicación
+--- Precio
+
+- Pago de la inscripción
+- Asignación de horario de acuerdo a su edad
+- Cinta
+- Asistencia
+-- Dia
+-- horario
+- Catalogo de Horarios
+-- Horario
+-- Descripción
+-- Edad inicial
+-- Edad final
+-- Maestro asignado > 1
+
+- Pedidos de equipo
+-- Sistema de apartado
+- Cobros
+-- Eventos
+--- Pagos de :
+---- Torneos
+---- Viajes
+---- Conferencias
+---- Examenes
+- Administrativos
+-- Corte del dia
+-- Cobros del dia 
+--- Separación por concepto de pago
+- Pedidos de equipo
+-- Solo aplica cuando el pago por el equipo es completo
+
 
 - [Updating to New Releases](#updating-to-new-releases)
 - [Sending Feedback](#sending-feedback)
