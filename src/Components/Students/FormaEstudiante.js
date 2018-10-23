@@ -84,7 +84,7 @@ class FormaEstudiante extends React.Component {
                         <tr>
                             <td className="textTD">
                                 Nombre
-                </td>
+                            </td>
                             <td >
                                 <input className="text-input"
                                     name="name"
@@ -97,7 +97,7 @@ class FormaEstudiante extends React.Component {
                         <tr>
                             <td className="textTD">
                                 Edad
-                </td>
+                            </td>
                             <td >
                                 <input className="text-input"
                                     name="age"
@@ -111,7 +111,7 @@ class FormaEstudiante extends React.Component {
                         <tr>
                             <td className="textTD">
                                 Peso
-                </td>
+                            </td>
                             <td >
                                 <input className="text-input"
                                     name="weigth"
@@ -132,7 +132,7 @@ class FormaEstudiante extends React.Component {
                         <tr>
                             <td className="textTD">
                                 Edad
-                </td>
+                            </td>
                             <td >
                                 <input className="text-input"
                                     name="age"
@@ -146,7 +146,7 @@ class FormaEstudiante extends React.Component {
                         <tr>
                             <td className="textTD">
                                 Peso
-                </td>
+                            </td>
                             <td >
                                 <input className="text-input"
                                     name="weigth"
@@ -159,7 +159,7 @@ class FormaEstudiante extends React.Component {
                         <tr>
                             <td className="textTD">
                                 Cinta
-                </td>
+                            </td>
                             <td >
                                 <select className="text-input"
                                     name="belt"
@@ -205,7 +205,6 @@ class FormaEstudiante extends React.Component {
                         </tr>
                     </tbody>
                 </table>
-
             </div>
         );
     }
