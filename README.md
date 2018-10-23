@@ -4,72 +4,72 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Casos de uso :
 
 - Catalogo de Alumnos
--- Llenar forma de inscripción
--- Datos del alumno
--- Nombre ( Apellidos, nombre
--- Fecha de nacimiento
--- Ocupacion
--- Domicilio
---- Calle y numero
---- Telefono
+  - Llenar forma de inscripción
+  - Datos del alumno
+  - Nombre ( Apellidos, nombre
+  - Fecha de nacimiento
+  - Ocupacion
+  - Domicilio
+-  - Calle y numero
+-  - Telefono
 
 - Datos medicos
--- Peso
--- Estatura
--- Talla
--- Tipo de sangre
--- Alergias y padecimientos
--- Tipo de parto
--- Semanas de gestacion
--- Gateo
--- Camino a la edad de ?
+  - Peso
+  - Estatura
+  - Talla
+  - Tipo de sangre
+  - Alergias y padecimientos
+  - Tipo de parto
+  - Semanas de gestacion
+  - Gateo
+  - Camino a la edad de ?
 - Familiares (Padre o tutor (2))
--- Nombre
--- Domicilio
--- Telefono
---- Casa
---- Trabajo
---- Movil
--- Correo electronico
--- Ocupacion
+  - Nombre
+  - Domicilio
+  - Telefono
+-  - Casa
+-  - Trabajo
+-  - Movil
+  - Correo electronico
+  - Ocupacion
 - Referencias
--- Por que se inscribe al karate
--- Objetivos a realizar 
--- Cómo se enteró de la escuela
--- Opinion 
---- Maestro
---- Instalaciones
---- Ubicación
---- Precio
+  - Por que se inscribe al karate
+  - Objetivos a realizar 
+  - Cómo se enteró de la escuela
+  - Opinion 
+-  - Maestro
+-  - Instalaciones
+-  - Ubicación
+-  - Precio
 
 - Pago de la inscripción
 - Asignación de horario de acuerdo a su edad
 - Cinta
 - Asistencia
--- Dia
--- horario
+  - Dia
+  - horario
 - Catalogo de Horarios
--- Horario
--- Descripción
--- Edad inicial
--- Edad final
--- Maestro asignado > 1
+  - Horario
+  - Descripción
+  - Edad inicial
+  - Edad final
+  - Maestro asignado > 1
 
 - Pedidos de equipo
--- Sistema de apartado
+  - Sistema de apartado
 - Cobros
--- Eventos
---- Pagos de :
----- Torneos
----- Viajes
----- Conferencias
----- Examenes
+  - Eventos
+-  - Pagos de :
+--  - Torneos
+--  - Viajes
+--  - Conferencias
+--  - Examenes
 - Administrativos
--- Corte del dia
--- Cobros del dia 
---- Separación por concepto de pago
+  - Corte del dia
+  - Cobros del dia 
+-  - Separación por concepto de pago
 - Pedidos de equipo
--- Solo aplica cuando el pago por el equipo es completo
+  - Solo aplica cuando el pago por el equipo es completo
 
 
 - [Updating to New Releases](#updating-to-new-releases)
@@ -624,7 +624,7 @@ class Button extends Component {
 No clashes from other `.error` class names
 
 ```html
-<!-- This button has red background but not red text -->
+<!  - This button has red background but not red text -->
 <button class="Button_error_ax7yz"></div>
 ```
 
@@ -1537,7 +1537,7 @@ Similarly, `fit()` lets you focus on a specific test without running any other t
 ### Coverage Reporting
 
 Jest has an integrated coverage reporter that works well with ES6 and requires no configuration.<br>
-Run `npm test -- --coverage` (note extra `--` in the middle) to include a coverage report like this:
+Run `npm test   - --coverage` (note extra `--` in the middle) to include a coverage report like this:
 
 ![coverage report](http://i.imgur.com/5bFhnTS.png)
 
@@ -2434,7 +2434,7 @@ Note that in order to support routers that use HTML5 `pushState` API, you may wa
 You can adjust various development and production settings by setting environment variables in your shell or with [.env](#adding-development-environment-variables-in-env).
 
 | Variable            |      Development       |     Production     | Usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| :------------------ | :--------------------: | :----------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :----------------  - | :--------------------: | :----------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  - |
 | BROWSER             |   :white_check_mark:   |        :x:         | By default, Create React App will open the default system browser, favoring Chrome on macOS. Specify a [browser](https://github.com/sindresorhus/opn#app) to override this behavior, or set it to `none` to disable it completely. If you need to customize the way the browser is launched, you can specify a node script instead. Any arguments passed to `npm start` will also be passed to this script, and the url where your app is served will be the last argument. Your script's file name must have the `.js` extension.                                                                                                                                       |
 | HOST                |   :white_check_mark:   |        :x:         | By default, the development web server binds to `localhost`. You may use this variable to specify a different host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | PORT                |   :white_check_mark:   |        :x:         | By default, the development web server will attempt to listen on port 3000 or prompt you to attempt the next available port. You may use this variable to specify a different port.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
