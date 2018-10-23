@@ -43,84 +43,23 @@ class FormaEstudiante extends React.Component {
                 console.log('Grabado')
             });
 
-<<<<<<< HEAD
-    var updates = {};
-    
-    updates['escuelas/Escuela/estudiantes/estudiante' + newPostKey] = miRegistro;
-    console.log(miRegistro);
+        var updates = {};
 
-    return firebase.database().ref().update(updates)
-    .then(()=>{
-      console.log('Grabado')
-      this.setState({        
-        name:'',
-        age:'',
-        weigth:'',
-        belt:'1',
-        school:'1',
-      })
-    });
-      
-  }
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+        updates['escuelas/Escuela/estudiantes/estudiante' + newPostKey] = miRegistro;
+        console.log(miRegistro);
 
-    this.setState({
-      [name]: value
-    });
+        return firebase.database().ref().update(updates)
+            .then(() => {
+                console.log('Grabado')
+                this.setState({
+                    name: '',
+                    age: '',
+                    weigth: '',
+                    belt: '1',
+                    school: '1',
+                })
+            });
 
-  }
-
-
-
-  render() {
-    const { data } = this.state;
-    return (
-      <div>
-        <br />
-        <table > 
-            <tbody className="text">
-            <tr>
-                <td className="textTD">
-                    Nombre                    
-                </td>
-                <td >
-                    <input className="text-input" 
-                    name="name"
-                    type="text"
-                    onChange={this.handleInputChange}
-                    value={this.state.name}
-                  />
-                </td>
-            </tr>
-            <tr>
-                <td className="textTD">
-                    Edad
-                </td>
-                <td >
-                <input className="text-input" 
-                    name="age"
-                    type="number"
-                    onChange={this.handleInputChange}
-                    value={this.state.age}
-                  />
-                </td>
-
-            </tr>
-            <tr>
-                <td className="textTD">
-                    Peso
-                </td>
-                <td >
-                <input className="text-input" 
-                    name="weigth"
-                    type="number"
-                    onChange={this.handleInputChange}
-                    value={this.state.weigth}
-                  />
-=======
     }
     handleInputChange(event) {
         const target = event.target;
@@ -145,8 +84,42 @@ class FormaEstudiante extends React.Component {
                         <tr>
                             <td className="textTD">
                                 Nombre
->>>>>>> c89c2f3670a762462d6568955c6f123deb31e034
                 </td>
+                            <td >
+                                <input className="text-input"
+                                    name="name"
+                                    type="text"
+                                    onChange={this.handleInputChange}
+                                    value={this.state.name}
+                                />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="textTD">
+                                Edad
+                </td>
+                            <td >
+                                <input className="text-input"
+                                    name="age"
+                                    type="number"
+                                    onChange={this.handleInputChange}
+                                    value={this.state.age}
+                                />
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td className="textTD">
+                                Peso
+                </td>
+                            <td >
+                                <input className="text-input"
+                                    name="weigth"
+                                    type="number"
+                                    onChange={this.handleInputChange}
+                                    value={this.state.weigth}
+                                />
+                            </td>
                             <td >
                                 <input className="text-input"
                                     name="name"
@@ -209,7 +182,7 @@ class FormaEstudiante extends React.Component {
                         <tr>
                             <td className="textTD">
                                 Dojo
-                </td>
+                            </td>
                             <td >
                                 <select className="text-input"
                                     name="school"
@@ -227,27 +200,15 @@ class FormaEstudiante extends React.Component {
                             <td>
                                 <button onClick={() => this.SaveData()}>
                                     guardar
-                </button>
-<<<<<<< HEAD
-              </td>
-            </tr>
-            </tbody>
-        </table>
-
-      </div>
-    );
-  }
-=======
+                                </button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
-                <button onClick={this.loadData}>Refresh</button>
             </div>
         );
     }
->>>>>>> c89c2f3670a762462d6568955c6f123deb31e034
 }
 
 export default FormaEstudiante;
