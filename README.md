@@ -59,15 +59,15 @@ Casos de uso :
   - Sistema de apartado
 - Cobros
   - Eventos
--  - Pagos de :
---  - Torneos
---  - Viajes
---  - Conferencias
---  - Examenes
+  - Pagos de :
+     - Torneos
+     - Viajes
+     - Conferencias
+     - Examenes
 - Administrativos
   - Corte del dia
   - Cobros del dia 
--  - Separación por concepto de pago
+   - Separación por concepto de pago
 - Pedidos de equipo
   - Solo aplica cuando el pago por el equipo es completo
 
