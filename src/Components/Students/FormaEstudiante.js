@@ -120,41 +120,6 @@ class FormaEstudiante extends React.Component {
                                     value={this.state.weigth}
                                 />
                             </td>
-                            <td >
-                                <input className="text-input"
-                                    name="name"
-                                    type="text"
-                                    onChange={this.handleInputChange}
-                                    value={this.state.name}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="textTD">
-                                Edad
-                            </td>
-                            <td >
-                                <input className="text-input"
-                                    name="age"
-                                    type="text"
-                                    onChange={this.handleInputChange}
-                                    value={this.state.age}
-                                />
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td className="textTD">
-                                Peso
-                            </td>
-                            <td >
-                                <input className="text-input"
-                                    name="weigth"
-                                    type="text"
-                                    onChange={this.handleInputChange}
-                                    value={this.state.weigth}
-                                />
-                            </td>
                         </tr>
                         <tr>
                             <td className="textTD">
