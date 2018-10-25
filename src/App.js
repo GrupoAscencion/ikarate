@@ -107,7 +107,7 @@ class App extends Component {
         <SideDrawer show={this.state.sideDrawerOpen} />
         {backdrop}
         <main style={{ marginTop: '75px', }}>
-          <p>
+          <div>
 
             <BrowserRouter>
               <Switch>
@@ -118,7 +118,8 @@ class App extends Component {
                 <Route component={Error} />
 
               </Switch>
-            </BrowserRouter></p>
+              </BrowserRouter>
+            </div>
         </main>
 
       </div>

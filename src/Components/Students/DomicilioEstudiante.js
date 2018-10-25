@@ -3,37 +3,32 @@ import React from "react";
 
 // Import React Table
 import ReactTable from "react-table";
-import "react-table/react-table.css";
 
 import * as firebase from 'firebase';
-class FormaEstudiante extends React.Component {
+class DomicilioEstudiante extends React.Component {
 
     constructor() {
         super();
         this.handleInputChange = this.handleInputChange.bind(this);
         this.state = {
-            lastNames: '',
-            names: '',
-            birthday: '',
-            ocupation:'',
-            weigth: '',
-            belt: '1',
-            school: '1',
-
+            address:'',
+            phone:'',
+            zipcode:'',
+            city:'',
+            estado:'',
+            conty:'',
         };
     }
     SaveData() {
         var newPostKey = firebase.database().ref().child('escuelas/Escuela/estudiantes/').push().key;
         const miRegistro = {
-            names: this.state.names,
-            birthday: this.state.birthday,
-            weigth: this.state.weigth,
-            belt: this.state.belt,
-            school: this.state.school,
-            ocupation: this.state.ocupation,
-            lastNames: this.state.lastNames,
+            address: this.state.address,
+            phone: this.state.phone,
+            zipcode: this.state.zipcode,
+            city: this.state.city,
+            estado: this.state.estado,
+            conty: this.state.county,
 
-            
         }
 
         var updates = {};
@@ -55,13 +50,12 @@ class FormaEstudiante extends React.Component {
             .then(() => {
                 console.log('Grabado')
                 this.setState({
-                    lastNames: '',
-                    names: '',
-                    birthday: '',
-                    ocupation:'',
-                    weigth: '',
-                    belt: '1',
-                    school: '1',
+                    adres:'',
+                    phone:'',
+                    zipcode:'',
+                    city:'',
+                    estado:'',
+                    conty:'',
                 })
             });
 
@@ -80,9 +74,8 @@ class FormaEstudiante extends React.Component {
 
     render() {
         const { data } = this.state;
-
-        const AddAddress = () =>{
-            return (
+        return (
+            <div>
                 <table >
                     <tbody className="text">
                         <tr>
@@ -165,87 +158,9 @@ class FormaEstudiante extends React.Component {
                         </tr>
                     </tbody>
                 </table>
-            )
-        }
-        const AddStudent = () => {
-            return (
-                <table >
-                    <tbody className="text">
-                        <tr>
-                            <td className="textTD">
-                                Apellidos
-                            </td>
-                            <td >
-                                <input className="text-input"
-                                    name="lastNames"
-                                    type="text"
-                                    onChange={this.handleInputChange}
-                                    value={this.state.name}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="textTD">
-                                Nombre
-                            </td>
-                            <td >
-                                <input className="text-input"
-                                    name="names"
-                                    type="text"
-                                    onChange={this.handleInputChange}
-                                    value={this.state.names}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td className="textTD">
-                                Cumpleaños
-                            </td>
-                            <td >
-                                <input className="text-input"
-                                    name="birthday"
-                                    type="date"
-                                    onChange={this.handleInputChange}
-                                    value={this.state.birthday}
-                                />
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td className="textTD">
-                                Ocupacion
-                            </td>
-                            <td >
-                                <input className="text-input"
-                                    name="ocupation"
-                                    type="text"
-                                    onChange={this.handleInputChange}
-                                    value={this.state.ocupation}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button onClick={() => this.SaveData()}>
-                                    Guardar
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-        
-            );
-        
-        };
-        
-        return (
-            <div>
-                <br />
-                <AddStudent/>
-                <AddAddress/>
             </div>
         );
     }
 }
 
-export default FormaEstudiante;
+export default DomicilioEstudiante;
