@@ -8,12 +8,13 @@ import 'react-tabs/style/react-tabs.css'
 import * as firebase from 'firebase';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import AddAddress from './DomicilioEstudiante';
-import AddStudent from './FormaEstudiante';
+
+import AddStudent from './Students/FormaEstudiante';
+import AddAddress from './Students/DomicilioEstudiante';
 
 
 
-class StudentsCatalog extends React.Component {
+class Test extends React.Component {
 
     constructor(props) {
 
@@ -149,4 +150,4 @@ class StudentsCatalog extends React.Component {
     }
 }
 
-export default StudentsCatalog;
+export default Test;

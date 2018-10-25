@@ -9,11 +9,11 @@ import SideDrawer from './SideDrawer/SideDrawer';
 import Backdrop from './Components/Backdrop/Backdrop';
 
 import Home from './Components/Home';
-import Students from './Components/Students';
 import Payments from './Components/Payments';
 import Schools from './Components/Schools';
 import Error from './Components/Error';
 import StudentsCatalog from './Components/Students/Catalogo';
+import Test from './Components/Test';
 
 class App extends Component {
 
@@ -115,6 +115,7 @@ class App extends Component {
                 <Route path="/Payments" component={Payments} />
                 <Route path="/Schools" component={Schools} />
                 <Route path="/Students" component={StudentsCatalog} />
+                <Route path="/Test" component={Test}/>
                 <Route component={Error} />
 
               </Switch>
