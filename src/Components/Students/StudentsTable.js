@@ -11,8 +11,8 @@ class StudentsTable extends React.Component {
 
 
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     if (!firebase.apps.length) {
       firebase.initializeApp({});
     }
@@ -31,41 +31,93 @@ class StudentsTable extends React.Component {
       ]
     };
     this.loadData = this.loadData.bind(this);
+    this.gotData = this.gotData.bind(this);
+    this.removeRecord = this.removeRecord.bind(this);
   }
 
 
   loadData() {
     console.log('Entre a load Data');
-    this.Students = [];
-    this.database.on('child_added', (dataSnapshot) => {
-      this.Students.push({ id: dataSnapshot.key, Student: dataSnapshot.val() })
-      this.setState({
+    this.database.once('value', this.gotData, this.errData)
 
-        data: this.Students,
-      });
-      this.database.off();
+  }
+
+
+
+  gotData(data) {
+    var myStudents = data.val();
+    var keys = Object.keys(myStudents)
+    let fullName = "";
+    let estudiantes;
+
+    this.Students = [];
+    for (var i = 0; i < keys.length; i++) {
+      var k = keys[i];
+      estudiantes = myStudents[k];
+      fullName = estudiantes.lastNames + ", " + estudiantes.names;
+      estudiantes.fullName = fullName;
+      this.Students.push({ id: k, Student: estudiantes })
+    }
+    console.log(this.Students);
+    this.setState({
+      data: this.Students,
+
     });
+    this.props.refreshComplete();
+  }
+
+  errData(err) {
+    console.log('Error leyendo datos!');
+    console.log(err);
+
+  }
+
+  
+
+  removeRecord(id) {
+
+ console.log(id);
+    if (window.confirm('Eliminar al Estudiante, '+ id.original.Student.fullName +' ?')) {
+      firebase.database().ref('escuelas/Escuela/estudiantes/' + id.value).remove()
+        .then(() => {
+          console.log("Elimiado !");
+          this.loadData();
+
+        }).catch((error) => {
+          console.log('Error while removing : ', error);
+        });
+           }
+
 
   }
 
   render() {
     const { data } = this.state;
+    if (this.props.refreshNow) {
+      this.loadData();
+    }
     return (
       <div>
         <ReactTable
           data={data}
+          previousText='Anterior'
+          nextText='Siguiente'
+          pageText='Pagina'
+          ofText='de'
+          rowsText='Registros'
           columns={[
             {
-              Header: "Datos Personales",   
-              
+              Header: "Datos Personales",
+
               columns: [
                 {
                   Header: "Nombre",
-                  accessor: "Student.name"
+                  accessor: "Student.fullName"
                 },
                 {
                   Header: "Escuela",
-                  accessor: "Student.school"                }
+                  accessor: "Student.school"
+                }
               ]
             },
             {
@@ -89,14 +141,39 @@ class StudentsTable extends React.Component {
                   accessor: "visits"
                 }
               ]
+            },
+            {
+              Header: 'Acciones',
+              columns: [
+                {
+                  Header: "Acciones",
+                  accessor: "id",
+                  Cell: row => (
+                    <div
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: '#dadada',
+                        borderRadius: '2px'
+                      }}>
+                      <button onClick={() => this.props.loadStudent(row.value)}>
+                        Editar
+                      </button>
+
+                      <button onClick={() => this.removeRecord(row)}>
+                        Eliminar
+                      </button>
+                    </div>
+                  )
+                },
+
+              ]
             }
+
           ]}
           defaultPageSize={10}
           className="-striped -highlight"
         />
-        <br />
-
-        <button onClick={this.loadData}>Refresh</button>
       </div>
     );
   }
