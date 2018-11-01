@@ -40,6 +40,7 @@ class StudentsCatalog extends React.Component {
       refreshTable: true,
       formVisible:false,
     };
+    
     this.handleInputChange = this.handleInputChange.bind(this);
     this.SaveData = this.SaveData.bind(this);
     this.loadRecord = this.loadRecord.bind(this);
