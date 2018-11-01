@@ -10,7 +10,6 @@ import * as firebase from 'firebase';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import AddAddress from './DomicilioEstudiante';
 import AddStudent from './FormaEstudiante';
-import StudedentsTable from './StudentsTable';
 import StudentsTable from "./StudentsTable";
 
 
@@ -40,6 +39,7 @@ class StudentsCatalog extends React.Component {
       refreshTable: true,
       formVisible:false,
     };
+    
     this.handleInputChange = this.handleInputChange.bind(this);
     this.SaveData = this.SaveData.bind(this);
     this.loadRecord = this.loadRecord.bind(this);
