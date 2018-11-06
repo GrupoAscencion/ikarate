@@ -44,10 +44,12 @@ class StudentsCatalog extends React.Component {
     this.SaveData = this.SaveData.bind(this);
     this.loadRecord = this.loadRecord.bind(this);
     this.refreshComplete = this.refreshComplete.bind(this);
-
+    this.CleanStudentRecord = this.CleanStudentRecord.bind(this);
+    this.NewStudent = this.NewStudent.bind(this);
 
   }
 
+  
   SaveData() {
     let newPostKey;
     if (this.state.studentID)
@@ -148,7 +150,31 @@ class StudentsCatalog extends React.Component {
     this.setState({ refreshTable: false });
   }
 
-  
+  CleanStudentRecord(){
+    this.setState({
+      address: '',
+      phone: '',
+      zipcode: '',
+      city: '',
+      estado: '',
+      county: '',
+      lastNames: '',
+      names: '',
+      birthday: '',
+      ocupation: '',
+      weigth: '',
+      belt: '1',
+      school: '1',
+      studentID: null,
+    });
+  }
+
+  NewStudent (){
+    this.CleanStudentRecord();
+    this.setState({
+      formVisible: true,
+    })
+  }
 
   render() {
     { var formVisible = this.state.formVisible }
@@ -158,36 +184,36 @@ class StudentsCatalog extends React.Component {
         <div>
           <Tabs >
             <TabList>
-              <Tab>Datos del Alumno</Tab>
-              <Tab>Domicilio</Tab>
-              <Tab>Datos Medicos</Tab>
-              <Tab>Familiares</Tab>
-              <Tab>Referencias</Tab>
+              <Tab style={{backgroundColor:'rgba(226,222,222)'}}>Datos del Alumno</Tab>
+              <Tab style={{backgroundColor:'rgba(211, 207, 148)'}}>Domicilio</Tab>
+              <Tab style={{backgroundColor:'rgba(193,255,191)'}}>Datos Medicos</Tab>
+              <Tab style={{backgroundColor:'rgba(255,197,191)'}}>Familiares</Tab>
+              <Tab style={{backgroundColor:'rgba(188,192,244)'}}>Referencias</Tab>
             </TabList>
 
-            <TabPanel>
+            <TabPanel style={{backgroundColor:'rgba(226,222,222)'}}>
               <div key="myDiv">
                 <b>Datos del Alumno</b>
                 <AddStudent handleInputChange={this.handleInputChange} RecordValue={this.state} />
               </div>
             </TabPanel>
-            <TabPanel>
+            <TabPanel style={{backgroundColor:'rgba(211, 207, 148)'}}>
               <div>
                 <b>Domicilio</b>
                 <AddAddress handleInputChange={this.handleInputChange} RecordValue={this.state} />
               </div>
             </TabPanel>
-            <TabPanel>
+            <TabPanel style={{backgroundColor:'rgba(193,255,191)'}}>
               <p>
                 <b>Datos Medicos</b>
               </p>
             </TabPanel>
-            <TabPanel>
+            <TabPanel style={{backgroundColor:'rgba(255,197,191)'}}>
               <p>
                 <b>Familiare</b>
               </p>
             </TabPanel>
-            <TabPanel>
+            <TabPanel style={{backgroundColor:'rgba(188,192,244)'}}>
               <p>
                 <b>Referencias</b>
               </p>
@@ -200,6 +226,7 @@ class StudentsCatalog extends React.Component {
           <hr />
         </div>
         )}
+        <button onClick={this.NewStudent}> + Nuevo estudiante</button>
         <StudentsTable refreshNow={this.state.refreshTable} refreshComplete={this.refreshComplete} loadStudent={this.loadRecord} deleteStudent={this.removeRecord} />
         <button onClick={()=> this.setState({formVisible: true})}>Ver </button>
         <button onClick={()=> this.setState({formVisible: false})}>Ocultar </button>
