@@ -334,7 +334,7 @@ class StudentsCatalog extends React.Component {
               <Tab style={{backgroundColor:'rgba(211, 207, 148)'}}>Domicilio</Tab>
               <Tab style={{backgroundColor:'rgba(193,255,191)'}}>Datos Medicos</Tab>
               <Tab style={{backgroundColor:'rgba(255,197,191)'}}>Familiares</Tab>
-              <Tab style={{backgroundColor:'rgba(188,192,244)'}}>Referencias</Tab>
+              <Tab style={{backgroundColor:'rgba(188,192,244)'}}>Encuesta</Tab>
             </TabList>
 
             <TabPanel style={{backgroundColor:'rgba(226,222,222)'}}>
