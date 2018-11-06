@@ -1,131 +1,111 @@
 import React from "react";
 
-const AddAddress = (props) => {
+const AddMedicalData = (props) => {
     return (
         <table >
             <tbody className="text">
                 <tr>
                     <td className="textTD">
-                        Calle
+                        Peso
                     </td>
                     <td >
                         <input className="text-input"
-                            name="address"
-                            type="text"
-                            onChange={props.handleInputChange}
-                            value={props.RecordValue.address}
-                            //size="30"
-                        />
-                    </td>
-                    <td>
-                        Num.Ext
-                    </td>
-                    <td >
-                        <input className="text-input"
-                            name="numExt"
+                            name="weigth"
                             type="number"
                             onChange={props.handleInputChange}
-                            value={props.RecordValue.numExt}
-                            //size="6"
-                            placeholder=""
-                            max='99999'
+                            value={props.RecordValue.weigth}
                         />
                     </td>
-                    <td>
-                        Num.Int
+                    <td className="textTD">
+                        Estatura
                     </td>
                     <td >
                         <input className="text-input"
-                            name="numInt"
-                            type="text"
+                            name="height"
+                            type="number"
                             onChange={props.handleInputChange}
-                            value={props.RecordValue.numInt}
-                            //size="5"
-                            placeholder="jalisco"
+                            value={props.RecordValue.height}
                         />
                     </td>
-                    
-                </tr>
-                <tr>
                     <td className="textTD">
-                        Colonia
+                        Talla
                   </td>
                     <td >
                         <input className="text-input"
-                            name="county"
-                            type="text"
+                            name="size"
+                            type="sellect"
                             onChange={props.handleInputChange}
-                            value={props.RecordValue.county}
-                            size="30"
-                            placeholder="jalisco"
+                            value={props.RecordValue.size}
                         />
                     </td>
                 </tr>
                 <tr>
                     <td className="textTD">
-                        Ciudad
-                    </td>
+                        Tipo De sangre
+                  </td>
                     <td >
                         <input className="text-input"
-                            name="city"
-                            type="text"
+                            name="blood"
+                            type="sellect"
                             onChange={props.handleInputChange}
-                            value={props.RecordValue.city}
-                            size="30"
-                            placeholder="jalisco"
+                            value={props.RecordValue.blood}
                         />
                     </td>
                     <td className="textTD">
-                        Estado
-                    </td>
+                        Padecimientos
+                  </td>
                     <td >
                         <input className="text-input"
-                            name="estado"
+                            name="sufferings"
                             type="text"
                             onChange={props.handleInputChange}
-                            value={props.RecordValue.estado}
-                            placeholder="jalisco"
+                            value={props.RecordValue.sufferings}
+                        />
+                    </td>
+                    <td className="textTD">
+                        Tipo De Parto
+                  </td>
+                    <td >
+                        <input className="text-input"
+                            name="part"
+                            type="text"
+                            onChange={props.handleInputChange}
+                            value={props.RecordValue.part}
                         />
                     </td>
                 </tr>
                 <tr>
                     <td className="textTD">
-                        Codigo Postal
-                    </td>
+                        Semanas De Gestacion
+                  </td>
                     <td >
                         <input className="text-input"
-                            name="zipcode"
+                            name="gestation"
                             type="number"
                             onChange={props.handleInputChange}
-                            value={props.RecordValue.zipcode}
-                            size='30'
-                            />
-                    </td>
-                    <td className="textTD">
-                        Tel.Casa
-                    </td>
-                    <td >
-                        <input className="text-input"
-                            name="phoneHouse"
-                            type="number"
-                            onChange={props.handleInputChange}
-                            value={props.RecordValue.phoneHouse}
-                            size="9"
-                            maxlength="9"
-                            placeholder="jalisco"
+                            value={props.RecordValue.gestation}
                         />
                     </td>
                     <td className="textTD">
-                        Tel.Cel
+                        Gateo
+                  </td>
+                    <td >
+                        <input className="text-input"
+                            name="gateo"
+                            type="number"
+                            onChange={props.handleInputChange}
+                            value={props.RecordValue.gateo}
+                        />
+                    </td>
+                    <td className="textTD">
+                        Primeros Pasos                        
                     </td>
                     <td >
                         <input className="text-input"
-                            name="phone"
+                            name="steps"
                             type="number"
                             onChange={props.handleInputChange}
-                            value={props.RecordValue.phone}
-                            size="13"
-                            placeholder="jalisco"
+                            value={props.RecordValue.steps}
                         />
                     </td>
                 </tr>
@@ -135,4 +115,4 @@ const AddAddress = (props) => {
     )
 }
 
-export default AddAddress;
+export default AddMedicalData;
