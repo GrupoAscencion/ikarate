@@ -14,7 +14,7 @@ const Quiz = (props) => {
                                 name="inscripcion"
                                 type="text"
                                 onChange={props.handleInputChange}
-                                value={props.RecordValue.increpcion}
+                                value={props.RecordValue.inscrepcion}
                             />
                         </td>
                         <td className="textTD">
@@ -99,7 +99,7 @@ const Quiz = (props) => {
                                     name="precio"
                                     type="text"
                                     onChange={props.handleInputChange}
-                                    value={props.RecordValue.precion}
+                                    value={props.RecordValue.precio}
                                 />
                             </td>
                         </tr>
