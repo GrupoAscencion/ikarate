@@ -11,6 +11,9 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import AddAddress from './DomicilioEstudiante';
 import AddStudent from './FormaEstudiante';
 import StudentsTable from "./StudentsTable";
+import AddMedicalData from "./DatosMedicosEstudiante";
+import AddFamily from "./familiares";
+import  "./Catalogo.css";
 
 
 
@@ -22,22 +25,52 @@ class StudentsCatalog extends React.Component {
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.state = {
+      RecordValue: null,
       studentID: null,
+
       address: '',
+      numExt: '',
+      numInt: '',
+      phoneHouse: '',
       phone: '',
       zipcode: '',
       city: '',
       estado: '',
       county: '',
+
       lastNames: '',
       names: '',
       birthday: '',
       ocupation: '',
-      weigth: '',
       belt: '1',
       school: '1',
+
       refreshTable: true,
       formVisible:false,
+
+      weigth: '',
+      heigth: '',
+      size: '',
+      blood: '',
+      sufferings: '',
+      part: '',
+      gestation: '',
+      gateo: '',
+      steps: '',
+
+      addressFam: '',
+      nameFather: '',
+      numExtFam: '',
+      numIntFam: '',
+      countyFam: '',
+      cityFam: '',
+      estadoFam: '',
+      zipcodeFam: '',
+      phoneHouseFam: '',
+      phoneFam: '',
+      teljob: '',
+      emailAddress: '',
+      job: '',
     };
     
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -56,18 +89,42 @@ class StudentsCatalog extends React.Component {
       newPostKey = firebase.database().ref().child('escuelas/Escuela/estudiantes/').push().key;
     const miRegistro = {
       address: this.state.address,
+      numExt: this.state.numExt,
+      numInt: this.state.numInt,
       phone: this.state.phone,
       zipcode: this.state.zipcode,
       city: this.state.city,
       estado: this.state.estado,
       county: this.state.county,
+
       lastNames: this.state.lastNames,
       names: this.state.names,
       birthday: this.state.birthday,
-      weigth: this.state.weigth,
       belt: this.state.belt,
       school: this.state.school,
       ocupation: this.state.ocupation,
+
+      weigth: this.state.weigth,
+      heigth: this.state.heigth,
+      size: this.state.size,
+      blood: this.state.blood,
+      sufferings: this.state.sufferings,
+      part: this.state.part,
+      gestation: this.state.gestation,
+      gateo: this.state.gateo,
+      steps: this.state.steps,
+
+      addressFam: this.state.addressFam,
+      numExt: this.state.numExtFam,
+      numInt: this.state.numIntFam,
+      phone: this.state.phoneFam,
+      zipcode: this.state.zipcodeFam,
+      city: this.state.cityFam,
+      estado: this.state.estadoFam,
+      county: this.state.countyFam,
+      teljob: this.state.teljob,
+      emailAddress: this.state.emailAddress,
+      job: this.state.job,
     }
 
     var updates = {};
@@ -80,22 +137,49 @@ class StudentsCatalog extends React.Component {
         console.log('Grabado', miRegistro)
         this.setState({
           address: '',
+          numExt: '',
+          numInt: '',
           phone: '',
           zipcode: '',
           city: '',
           estado: '',
           county: '',
+
           lastNames: '',
           names: '',
           birthday: '',
           ocupation: '',
-          weigth: '',
           belt: '1',
           school: '1',
+
           studentID: null,
           refreshTable: true,
           formVisible: false,
-        })
+
+          weigth: '',
+          heigth: '',
+          size: '',
+          blood: '',
+          sufferings: '',
+          part: '',
+          gestation: '',
+          gateo: '',
+          steps: '',
+
+          addressFam: '',
+          nameFather: '',
+          numExtFam: '',
+          numIntFam: '',
+          countyFam: '',
+          cityFam: '',
+          estadoFam: '',
+          zipcodeFam: '',
+          phoneHouseFam: '',
+          phoneFam: '',
+          teljob: '',
+          emailAddress: '',
+          job: '',
+            })
       });
 
   }
@@ -116,13 +200,38 @@ class StudentsCatalog extends React.Component {
           city: Student.city,
           estado: Student.estado,
           county: Student.county,
+
           lastNames: Student.lastNames,
           names: Student.names,
           birthday: Student.birthday,
           ocupation: Student.ocupation,
-          weigth: Student.weigth,
           belt: Student.belt,
           school: Student.school,
+
+          weigth: Student.weigth,
+          heigth: Student.heigth,
+          size: Student.size,
+          blood: Student.blood,
+          sufferings: Student.sufferings,
+          part: Student.part,
+          gestation: Student.gestation,
+          gateo: Student.gateo,
+          steps: Student.steps,
+
+          addressFam:Student.addressFam,
+          nameFather: Student.nameFather,
+          numExtFam: Student.numExtFam,
+          numIntFam: Student.numIntFam,
+          countyFam: Student.countyFam,
+          cityFam: Student.cityFam,
+          estadoFam: Student.estadoFam,
+          zipcodeFam: Student.zipcodeFam,
+          phoneHouseFam: Student.phoneHouseFamFam,
+          phoneFam: Student.phoneFam,
+          teljob: Student.teljob,
+          emailAddress: Student.emailAddress,
+          job: Student.job,
+    
         });
 
       });
@@ -180,11 +289,13 @@ class StudentsCatalog extends React.Component {
             <TabPanel>
               <p>
                 <b>Datos Medicos</b>
+                <AddMedicalData handleInputChange={this.handleInputChange}RecordValue={this.state}/>
               </p>
             </TabPanel>
             <TabPanel>
               <p>
                 <b>Familiare</b>
+                <AddFamily handleInputChange={this.handleInputChange}RecordValue={this.state}/>
               </p>
             </TabPanel>
             <TabPanel>
