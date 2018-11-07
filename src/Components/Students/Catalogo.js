@@ -298,20 +298,52 @@ class StudentsCatalog extends React.Component {
 
   CleanStudentRecord(){
     this.setState({
+      studentID: null,
+
       address: '',
       phone: '',
       zipcode: '',
       city: '',
       estado: '',
       county: '',
+
       lastNames: '',
       names: '',
       birthday: '',
       ocupation: '',
+
       weigth: '',
-      belt: '1',
-      school: '1',
-      studentID: null,
+      heigth: '',
+      size: '',
+      blood: '',
+      sufferings: '',
+      part: '',
+      gestation: '',
+      gateo: '',
+      steps: '',
+      
+      addressFam: '',
+      nameFather: '',
+      numExtFam: '',
+      numIntFam: '',
+      countyFam: '',
+      cityFam: '',
+      estadoFam: '',
+      zipcodeFam: '',
+      phoneHouseFam: '',
+      phoneFam: '',
+      teljob: '',
+      emailAddress: '',
+      job: '',
+
+      inscripcion: '',
+      objetivos: '',
+      fuente: '',
+      master: '',
+      instalaciones: '',
+      ubicacion: '',
+      precio: '',
+
     });
   }
 
