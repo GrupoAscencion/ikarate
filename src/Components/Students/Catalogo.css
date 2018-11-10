@@ -2,3 +2,21 @@
     background: rgba(179, 178, 178, 0.644);
     width: "120px";    
 }
+
+.alta-enter {
+    opacity: 0.01;
+  }
+  
+.alta-enter.example-enter-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+  }
+  
+  .alta-leave {
+    opacity: 1;
+  }
+  
+  .alta-leave.example-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms ease-out;
+  }

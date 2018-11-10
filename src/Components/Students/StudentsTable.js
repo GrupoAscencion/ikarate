@@ -6,6 +6,7 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 
 import * as firebase from 'firebase';
+import { isNull } from "util";
 
 class StudentsTable extends React.Component {
 
@@ -46,6 +47,7 @@ class StudentsTable extends React.Component {
 
   gotData(data) {
     var myStudents = data.val();
+    if (!isNull(myStudents)){
     var keys = Object.keys(myStudents)
     let fullName = "";
     let estudiantes;
@@ -63,7 +65,9 @@ class StudentsTable extends React.Component {
       data: this.Students,
 
     });
+    }
     this.props.refreshComplete();
+
   }
 
   errData(err) {

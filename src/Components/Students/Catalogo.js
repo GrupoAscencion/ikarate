@@ -13,9 +13,9 @@ import AddStudent from './FormaEstudiante';
 import StudentsTable from "./StudentsTable";
 import AddMedicalData from "./DatosMedicosEstudiante";
 import AddFamily from "./familiares";
-import  "./Catalogo.css";
-
-
+import "./Catalogo.css";
+import { CSSTransitionGroup } from 'react-transition-group';
+import Modal from 'react-modal';
 
 class StudentsCatalog extends React.Component {
 
@@ -46,7 +46,7 @@ class StudentsCatalog extends React.Component {
       school: '1',
 
       refreshTable: true,
-      formVisible:false,
+      formVisible: false,
 
       weigth: '',
       heigth: '',
@@ -72,7 +72,7 @@ class StudentsCatalog extends React.Component {
       emailAddress: '',
       job: '',
     };
-    
+
     this.handleInputChange = this.handleInputChange.bind(this);
     this.SaveData = this.SaveData.bind(this);
     this.loadRecord = this.loadRecord.bind(this);
@@ -82,7 +82,7 @@ class StudentsCatalog extends React.Component {
 
   }
 
-  
+
   SaveData() {
     let newPostKey;
     if (this.state.studentID)
@@ -181,7 +181,7 @@ class StudentsCatalog extends React.Component {
           teljob: '',
           emailAddress: '',
           job: '',
-            })
+        })
       });
 
   }
@@ -220,7 +220,7 @@ class StudentsCatalog extends React.Component {
           gateo: Student.gateo,
           steps: Student.steps,
 
-          addressFam:Student.addressFam,
+          addressFam: Student.addressFam,
           nameFather: Student.nameFather,
           numExtFam: Student.numExtFam,
           numIntFam: Student.numIntFam,
@@ -233,7 +233,7 @@ class StudentsCatalog extends React.Component {
           teljob: Student.teljob,
           emailAddress: Student.emailAddress,
           job: Student.job,
-    
+
         });
 
       });
@@ -259,7 +259,7 @@ class StudentsCatalog extends React.Component {
     this.setState({ refreshTable: false });
   }
 
-  CleanStudentRecord(){
+  CleanStudentRecord() {
     this.setState({
       address: '',
       phone: '',
@@ -278,7 +278,7 @@ class StudentsCatalog extends React.Component {
     });
   }
 
-  NewStudent (){
+  NewStudent() {
     this.CleanStudentRecord();
     this.setState({
       formVisible: true,
@@ -286,63 +286,72 @@ class StudentsCatalog extends React.Component {
   }
 
   render() {
-    { var formVisible = this.state.formVisible }
     return (
       <div >
-        {formVisible && (
-        <div>
-          <Tabs >
-            <TabList>
-              <Tab style={{backgroundColor:'rgba(226,222,222)'}}>Datos del Alumno</Tab>
-              <Tab style={{backgroundColor:'rgba(211, 207, 148)'}}>Domicilio</Tab>
-              <Tab style={{backgroundColor:'rgba(193,255,191)'}}>Datos Medicos</Tab>
-              <Tab style={{backgroundColor:'rgba(255,197,191)'}}>Familiares</Tab>
-              <Tab style={{backgroundColor:'rgba(188,192,244)'}}>Referencias</Tab>
-            </TabList>
+        <Modal
+          style={{ content: { top: 50,left:'auto', right: 'auto', bottom: 'auto' } }}
+          isOpen={this.state.formVisible}
+          onRequestClose={() => this.setState({ formVisible: false })}
+          shouldCloseOnOverlayClick={true}          
+          animationType={'slide'}>
+          <CSSTransitionGroup
+            transitionName="alta"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={300}>
+            <div id="alta">
+              <Tabs >
+                <TabList>
+                  <Tab style={{ backgroundColor: 'rgba(226,222,222)' }}>Datos del Alumno</Tab>
+                  <Tab style={{ backgroundColor: 'rgba(211, 207, 148)' }}>Domicilio</Tab>
+                  <Tab style={{ backgroundColor: 'rgba(193,255,191)' }}>Datos Medicos</Tab>
+                  <Tab style={{ backgroundColor: 'rgba(255,197,191)' }}>Familiares</Tab>
+                  <Tab style={{ backgroundColor: 'rgba(188,192,244)' }}>Referencias</Tab>
+                </TabList>
 
-            <TabPanel style={{backgroundColor:'rgba(226,222,222)'}}>
-              <div key="myDiv">
-                <b>Datos del Alumno</b>
-                <AddStudent handleInputChange={this.handleInputChange} RecordValue={this.state} />
-              </div>
-            </TabPanel>
-            <TabPanel style={{backgroundColor:'rgba(211, 207, 148)'}}>
-              <div>
-                <b>Domicilio</b>
-                <AddAddress handleInputChange={this.handleInputChange} RecordValue={this.state} />
-              </div>
-            </TabPanel>
-            <TabPanel style={{backgroundColor:'rgba(193,255,191)'}}>
-              <p>
-                <b>Datos Medicos</b>
-                <AddMedicalData handleInputChange={this.handleInputChange}RecordValue={this.state}/>
-              </p>
-            </TabPanel>
-            <TabPanel style={{backgroundColor:'rgba(255,197,191)'}}>
-              <p>
-                <b>Familiare</b>
-                <AddFamily handleInputChange={this.handleInputChange}RecordValue={this.state}/>
-              </p>
-            </TabPanel>
-            <TabPanel style={{backgroundColor:'rgba(188,192,244)'}}>
-              <p>
-                <b>Referencias</b>
-              </p>
-            </TabPanel>
-          </Tabs>
+                <TabPanel style={{ backgroundColor: 'rgba(226,222,222)' }}>
+                  <div key="myDiv">
+                    <b>Datos del Alumno</b>
+                    <AddStudent handleInputChange={this.handleInputChange} RecordValue={this.state} />
+                  </div>
+                </TabPanel>
+                <TabPanel style={{ backgroundColor: 'rgba(211, 207, 148)' }}>
+                  <div>
+                    <b>Domicilio</b>
+                    <AddAddress handleInputChange={this.handleInputChange} RecordValue={this.state} />
+                  </div>
+                </TabPanel>
+                <TabPanel style={{ backgroundColor: 'rgba(193,255,191)' }}>
+                  <p>
+                    <b>Datos Medicos</b>
+                    <AddMedicalData handleInputChange={this.handleInputChange} RecordValue={this.state} />
+                  </p>
+                </TabPanel>
+                <TabPanel style={{ backgroundColor: 'rgba(255,197,191)' }}>
+                  <p>
+                    <b>Familiare</b>
+                    <AddFamily handleInputChange={this.handleInputChange} RecordValue={this.state} />
+                  </p>
+                </TabPanel>
+                <TabPanel style={{ backgroundColor: 'rgba(188,192,244)' }}>
+                  <p>
+                    <b>Referencias</b>
+                  </p>
+                </TabPanel>
+              </Tabs>
 
-          <button onClick={() => this.SaveData()}>
-            Guardar
-          </button>
-          <hr />
-        </div>
-        )}
+              <button onClick={() => this.setState({ formVisible: false })}>[X] Cancelar</button>
+              <button onClick={() => this.SaveData()}>Guardar</button>
+
+            </div>
+          </CSSTransitionGroup>
+        </Modal>
         <button onClick={this.NewStudent}> + Nuevo estudiante</button>
+
         <StudentsTable refreshNow={this.state.refreshTable} refreshComplete={this.refreshComplete} loadStudent={this.loadRecord} deleteStudent={this.removeRecord} />
-        <button onClick={()=> this.setState({formVisible: true})}>Ver </button>
-        <button onClick={()=> this.setState({formVisible: false})}>Ocultar </button>
-        {formVisible}
+        <button onClick={() => this.setState({ formVisible: true })}>Ver </button>
+        <button onClick={() => this.setState({ formVisible: false })}>Ocultar </button>
       </div>
+
     );
   }
 }
