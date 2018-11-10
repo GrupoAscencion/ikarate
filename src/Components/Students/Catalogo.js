@@ -12,6 +12,7 @@ import AddAddress from './DomicilioEstudiante';
 import AddStudent from './FormaEstudiante';
 import StudentsTable from "./StudentsTable";
 import AddMedicalData from "./DatosMedicosEstudiante";
+import Quiz from "./emcuesta";
 import AddFamily from "./familiares";
 import "./Catalogo.css";
 import { CSSTransitionGroup } from 'react-transition-group';
@@ -71,6 +72,15 @@ class StudentsCatalog extends React.Component {
       teljob: '',
       emailAddress: '',
       job: '',
+
+      inscripcion: '',
+      objetivos: '',
+      fuente: '',
+      master: '',
+      instalaciones: '',
+      ubicacion: '',
+      precio: '',
+
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -127,6 +137,15 @@ class StudentsCatalog extends React.Component {
       teljob: this.state.teljob,
       emailAddress: this.state.emailAddress,
       job: this.state.job,
+
+      inscripcion: this.state.inscripcion,
+      objetivos: this.state.objetivos,
+      fuente: this.state.fuente,
+      master: this.state.master,
+      instalaciones: this.state.instalaciones,
+      ubicacion: this.state.ubicacion,
+      precio: this.state.precio,
+
     }
 
     var updates = {};
@@ -181,6 +200,15 @@ class StudentsCatalog extends React.Component {
           teljob: '',
           emailAddress: '',
           job: '',
+
+          inscripcion: '',
+          objetivos: '',
+          fuente: '',
+          master: '',
+          instalaciones: '',
+          ubicacion: '',
+          precio: '',
+    
         })
       });
 
@@ -234,6 +262,15 @@ class StudentsCatalog extends React.Component {
           emailAddress: Student.emailAddress,
           job: Student.job,
 
+          inscripcion: Student.inscripcion,
+          objetivos: Student.objetivos,
+          fuente: Student.fuente,
+          master: Student.master,
+          instalaciones: Student.instalaciones,
+          ubicacion: Student.ubicacion,
+          precio: Student.precio,
+
+    
         });
 
       });
@@ -261,20 +298,52 @@ class StudentsCatalog extends React.Component {
 
   CleanStudentRecord() {
     this.setState({
+      studentID: null,
+
       address: '',
       phone: '',
       zipcode: '',
       city: '',
       estado: '',
       county: '',
+
       lastNames: '',
       names: '',
       birthday: '',
       ocupation: '',
+
       weigth: '',
-      belt: '1',
-      school: '1',
-      studentID: null,
+      heigth: '',
+      size: '',
+      blood: '',
+      sufferings: '',
+      part: '',
+      gestation: '',
+      gateo: '',
+      steps: '',
+      
+      addressFam: '',
+      nameFather: '',
+      numExtFam: '',
+      numIntFam: '',
+      countyFam: '',
+      cityFam: '',
+      estadoFam: '',
+      zipcodeFam: '',
+      phoneHouseFam: '',
+      phoneFam: '',
+      teljob: '',
+      emailAddress: '',
+      job: '',
+
+      inscripcion: '',
+      objetivos: '',
+      fuente: '',
+      master: '',
+      instalaciones: '',
+      ubicacion: '',
+      precio: '',
+
     });
   }
 
