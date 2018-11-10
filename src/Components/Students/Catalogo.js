@@ -261,7 +261,6 @@ class StudentsCatalog extends React.Component {
           teljob: Student.teljob,
           emailAddress: Student.emailAddress,
           job: Student.job,
-
           inscripcion: Student.inscripcion,
           objetivos: Student.objetivos,
           fuente: Student.fuente,
@@ -414,6 +413,56 @@ class StudentsCatalog extends React.Component {
             </div>
           </CSSTransitionGroup>
         </Modal>
+        {formVisible && (
+        <div>
+          <Tabs >
+            <TabList>
+              <Tab style={{backgroundColor:'rgba(226,222,222)'}}>Datos del Alumno</Tab>
+              <Tab style={{backgroundColor:'rgba(211, 207, 148)'}}>Domicilio</Tab>
+              <Tab style={{backgroundColor:'rgba(193,255,191)'}}>Datos Medicos</Tab>
+              <Tab style={{backgroundColor:'rgba(255,197,191)'}}>Familiares</Tab>
+              <Tab style={{backgroundColor:'rgba(188,192,244)'}}>Encuesta</Tab>
+            </TabList>
+
+            <TabPanel style={{backgroundColor:'rgba(226,222,222)'}}>
+              <div key="myDiv">
+                <b>Datos del Alumno</b>
+                <AddStudent handleInputChange={this.handleInputChange} RecordValue={this.state} />
+              </div>
+            </TabPanel>
+            <TabPanel style={{backgroundColor:'rgba(211, 207, 148)'}}>
+              <div>
+                <b>Domicilio</b>
+                <AddAddress handleInputChange={this.handleInputChange} RecordValue={this.state} />
+              </div>
+            </TabPanel>
+            <TabPanel style={{backgroundColor:'rgba(193,255,191)'}}>
+              <p>
+                <b>Datos Medicos</b>
+                <AddMedicalData handleInputChange={this.handleInputChange}RecordValue={this.state}/>
+              </p>
+            </TabPanel>
+            <TabPanel style={{backgroundColor:'rgba(255,197,191)'}}>
+              <p>
+                <b>Familiare</b>
+                <AddFamily handleInputChange={this.handleInputChange}RecordValue={this.state}/>
+              </p>
+            </TabPanel>
+            <TabPanel style={{backgroundColor:'rgba(188,192,244)'}}>
+              <p>
+                <b>Emcuesta</b>
+                <Quiz handleInputChange={this.handleInputChange}RecordValue={this.state}/>
+              </p>
+            </TabPanel>
+          </Tabs>
+
+          <button onClick={() => this.SaveData()}>
+            Guardar
+          </button>
+          <hr />
+        </div>
+        )}
+
         <button onClick={this.NewStudent}> + Nuevo estudiante</button>
 
         <StudentsTable refreshNow={this.state.refreshTable} refreshComplete={this.refreshComplete} loadStudent={this.loadRecord} deleteStudent={this.removeRecord} />
