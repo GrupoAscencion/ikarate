@@ -155,10 +155,13 @@ class StudentsTable extends React.Component {
                   Cell: row => (
                     <div
                       style={{
+                        display:'flex',
+                        alignContent:'center',
                         width: '100%',
                         height: '100%',
                         backgroundColor: '#dadada',
                         borderRadius: '2px'
+
                       }}>
                       <button onClick={() => this.props.loadStudent(row.value)}>
                         Editar
