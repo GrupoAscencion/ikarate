@@ -86,7 +86,7 @@ class Test extends React.Component {
 
                 <button onClick={() => console.log(this.state)}></button>
             </div>
-        );
+            );
     }
 }
 

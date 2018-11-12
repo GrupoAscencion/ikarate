@@ -18,6 +18,8 @@ import "./Catalogo.css";
 import { CSSTransitionGroup } from 'react-transition-group';
 import Modal from 'react-modal';
 
+Modal.setAppElement('#root');
+
 class StudentsCatalog extends React.Component {
 
   constructor(props) {
@@ -28,6 +30,9 @@ class StudentsCatalog extends React.Component {
     this.state = {
       RecordValue: null,
       studentID: null,
+      refreshTable: true,
+      formVisible: false,
+
 
       address: '',
       numExt: '',
@@ -45,9 +50,6 @@ class StudentsCatalog extends React.Component {
       ocupation: '',
       belt: '1',
       school: '1',
-
-      refreshTable: true,
-      formVisible: false,
 
       weigth: '',
       heigth: '',
@@ -208,7 +210,7 @@ class StudentsCatalog extends React.Component {
           instalaciones: '',
           ubicacion: '',
           precio: '',
-    
+
         })
       });
 
@@ -269,7 +271,7 @@ class StudentsCatalog extends React.Component {
           ubicacion: Student.ubicacion,
           precio: Student.precio,
 
-    
+
         });
 
       });
@@ -320,7 +322,7 @@ class StudentsCatalog extends React.Component {
       gestation: '',
       gateo: '',
       steps: '',
-      
+
       addressFam: '',
       nameFather: '',
       numExtFam: '',
@@ -357,10 +359,13 @@ class StudentsCatalog extends React.Component {
     return (
       <div >
         <Modal
-          style={{ content: { top: 50,left:'50', right: 'auto', bottom: 'auto', overflowY:'auto', maxHeight:'100vh' } }}
+          style={{ content: { top: 50, left: 50, right: 'auto', bottom: 'auto'} }}
           isOpen={this.state.formVisible}
           onRequestClose={() => this.setState({ formVisible: false })}
-          shouldCloseOnOverlayClick={true}          
+          shouldCloseOnOverlayClick={true}
+          overflowY='auto'
+          maxHeight='100vh'
+          overlfow='scroll'
           animationType={'slide'}>
           <CSSTransitionGroup
             transitionName="alta"
@@ -372,14 +377,15 @@ class StudentsCatalog extends React.Component {
                   <Tab style={{ backgroundColor: 'rgba(226,222,222)' }}>Datos del Alumno</Tab>
                   <Tab style={{ backgroundColor: 'rgba(211, 207, 148)' }}>Domicilio</Tab>
                   <Tab style={{ backgroundColor: 'rgba(193,255,191)' }}>Datos Medicos</Tab>
-                  <Tab style={{backgroundColor:'rgba(255,197,191)'}}>Familiares</Tab>
-                <Tab style={{backgroundColor:'rgba(188,192,244)'}}>Encuesta</Tab>
+                  <Tab style={{ backgroundColor: 'rgba(255,197,191)' }}>Familiares</Tab>
+                  <Tab style={{ backgroundColor: 'rgba(188,192,244)' }}>Encuesta</Tab>
                 </TabList>
 
                 <TabPanel style={{ backgroundColor: 'rgba(226,222,222)' }}>
                   <div key="myDiv">
                     <b>Datos del Alumno</b>
                     <AddStudent handleInputChange={this.handleInputChange} RecordValue={this.state} />
+                    <br/>
                   </div>
                 </TabPanel>
                 <TabPanel style={{ backgroundColor: 'rgba(211, 207, 148)' }}>
@@ -394,20 +400,21 @@ class StudentsCatalog extends React.Component {
                     <AddMedicalData handleInputChange={this.handleInputChange} RecordValue={this.state} />
                   </p>
                 </TabPanel>
-                <TabPanel style={{backgroundColor:'rgba(255,197,191)'}}>
-              <p>
-                <b>Familiare</b>
-                <AddFamily handleInputChange={this.handleInputChange}RecordValue={this.state}/>
-              </p>
-            </TabPanel>
-            <TabPanel style={{backgroundColor:'rgba(188,192,244)'}}>
-              <p>
-                <b>Encuesta</b>
-                <Quiz handleInputChange={this.handleInputChange}RecordValue={this.state}/>
-              </p>
-            </TabPanel>
+                <TabPanel style={{ backgroundColor: 'rgba(255,197,191)' }}>
+                  <p>
+                    <b>Familiare</b>
+                    <AddFamily handleInputChange={this.handleInputChange} RecordValue={this.state} />
+                  </p>
+                </TabPanel>
+                <TabPanel style={{ backgroundColor: 'rgba(188,192,244)' }}>
+                  <p>
+                    <b>Encuesta</b>
+                    <Quiz handleInputChange={this.handleInputChange} RecordValue={this.state} />
+                  </p>
+                </TabPanel>
               </Tabs>
-
+              <div style={{height:'5px'}}></div>
+   
               <button onClick={() => this.setState({ formVisible: false })}>[X] Cancelar</button>
               <button onClick={() => this.SaveData()}>Guardar</button>
 
