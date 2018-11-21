@@ -11,10 +11,10 @@ const AddFamily = (props) => {
                         </td>
                         <td >                            
                             <input className="text-input"
-                                name="nameFather"
+                                name="FamName"
                                 type="text"
                                 onChange={props.handleInputChange}
-                                value={props.RecordValue.nameFather}
+                                value={props.RecordValue.FamName}
                             />
                         </td>
                     </tr>
@@ -31,10 +31,10 @@ const AddFamily = (props) => {
                                         </td>
                                         <td >
                                             <input className="text-input"
-                                                name="addressFam"
+                                                name="FamAddress"
                                                 type="text"
                                                 onChange={props.handleInputChange}
-                                                value={props.RecordValue.addressFam}
+                                                value={props.RecordValue.FamAddress}
                                                 //size="30"
                                             />
                                         </td>
@@ -43,10 +43,10 @@ const AddFamily = (props) => {
                                         </td>
                                         <td >
                                             <input className="text-input"
-                                                name="numExtFam"
+                                                name="FamNumExt"
                                                 type="number"
                                                 onChange={props.handleInputChange}
-                                                value={props.RecordValue.numExtFam}
+                                                value={props.RecordValue.FamNumExt}
                                                 //size="6"
                                                 placeholder=""
                                                 max='99999'
@@ -57,10 +57,10 @@ const AddFamily = (props) => {
                                         </td>
                                         <td >
                                             <input className="text-input"
-                                                name="numIntFam"
+                                                name="FamNumInt"
                                                 type="text"
                                                 onChange={props.handleInputChange}
-                                                value={props.RecordValue.numIntFam}
+                                                value={props.RecordValue.FamNumInt}
                                                 //size="5"
                                                 placeholder="jalisco"
                                             />
@@ -75,10 +75,10 @@ const AddFamily = (props) => {
                                     </td>
                                         <td >
                                             <input className="text-input"
-                                                name="countyFam"
+                                                name="FamCounty"
                                                 type="text"
                                                 onChange={props.handleInputChange}
-                                                value={props.RecordValue.countyFam}
+                                                value={props.RecordValue.FamCounty}
                                                 //size="30"
                                                 placeholder="jalisco"
                                             />
@@ -88,10 +88,10 @@ const AddFamily = (props) => {
                                         </td>
                                         <td >
                                             <input className="text-input"
-                                                name="cityFam"
+                                                name="FamCity"
                                                 type="text"
                                                 onChange={props.handleInputChange}
-                                                value={props.RecordValue.cityFam}
+                                                value={props.RecordValue.FamCity}
                                                 //size="30"
                                                 placeholder="jalisco"
                                             />
@@ -101,10 +101,10 @@ const AddFamily = (props) => {
                                         </td>
                                         <td >
                                             <input className="text-input"
-                                                name="estadoFam"
+                                                name="FamState"
                                                 type="text"
                                                 onChange={props.handleInputChange}
-                                                value={props.RecordValue.estadoFam}
+                                                value={props.RecordValue.FamState}
                                                 placeholder="jalisco"
                                             />
                                         </td>
@@ -115,10 +115,10 @@ const AddFamily = (props) => {
                                         </td>
                                         <td >
                                             <input className="text-input"
-                                            name="telJob"
+                                            name="FamWorkPhone"
                                             type="number"
                                             onChange={props.handleInputChange}
-                                            value={props.RecordValue.telJob}
+                                            value={props.RecordValue.FamWorkPhone}
                                             />
                                         </td>
                                         <td className="textTD">
@@ -126,10 +126,10 @@ const AddFamily = (props) => {
                                         </td>
                                         <td >
                                             <input className="text-input"
-                                                name="phoneHouseFam"
+                                                name="FamHomePhone"
                                                 type="number"
                                                 onChange={props.handleInputChange}
-                                                value={props.RecordValue.phoneHouseFam}
+                                                value={props.RecordValue.FamHomePhone}
                                                 size="9"
                                                 maxlength="9"
                                                 placeholder="jalisco"
@@ -140,10 +140,10 @@ const AddFamily = (props) => {
                                         </td>
                                         <td >
                                             <input className="text-input"
-                                                name="phoneFam"
+                                                name="FamCellPhone"
                                                 type="number"
                                                 onChange={props.handleInputChange}
-                                                value={props.RecordValue.phoneFam}
+                                                value={props.RecordValue.FamCellPhone}
                                                 size="13"
                                                 placeholder="jalisco"
                                             />
@@ -155,10 +155,10 @@ const AddFamily = (props) => {
                                         </td>
                                         <td >
                                             <input className="text-input"
-                                                name="zipcodeFam"
+                                                name="FamZipCode"
                                                 type="number"
                                                 onChange={props.handleInputChange}
-                                                value={props.RecordValue.zipcodeFam}
+                                                value={props.RecordValue.FamZipCode}
                                                 size='30'
                                                 />
                                         </td>
@@ -180,10 +180,10 @@ const AddFamily = (props) => {
                         </td>
                         <td >
                             <input className="text-input"
-                                name="emailAdderess"
+                                name="FamEmailAddress"
                                 type="text"
                                 onChange={props.handleInputChange}
-                                value={props.RecordValue.emailAdderessFam}
+                                value={props.RecordValue.FamEmailAddress}
                             />
                         </td>
                         <td className="textTD">
@@ -191,10 +191,10 @@ const AddFamily = (props) => {
                         </td>
                         <td >
                             <input className="text-input"
-                                name="job"
+                                name="FamJob"
                                 type="text"
                                 onChange={props.handleInputChange}
-                                value={props.RecordValue.jobFam}
+                                value={props.RecordValue.FamJob}
                             />
                         </td>
                     </tr>
