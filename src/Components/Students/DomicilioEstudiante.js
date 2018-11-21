@@ -111,7 +111,7 @@ const AddAddress = (props) => {
                             onChange={props.handleInputChange}
                             value={props.RecordValue.phoneHouse}
                             size="9"
-                            maxlength="9"
+                            maxLength="9"
                             placeholder="jalisco"
                         />
                     </td>

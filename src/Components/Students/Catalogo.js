@@ -12,9 +12,10 @@ import AddAddress from './DomicilioEstudiante';
 import AddStudent from './FormaEstudiante';
 import StudentsTable from "./StudentsTable";
 import AddMedicalData from "./DatosMedicosEstudiante";
-import Quiz from "./emcuesta";
+import Quiz from "./encuesta";
 import AddFamily from "./familiares";
 import "./Catalogo.css";
+
 import { CSSTransitionGroup } from 'react-transition-group';
 import Modal from 'react-modal';
 
@@ -37,7 +38,6 @@ class StudentsCatalog extends React.Component {
       address: '',
       numExt: '',
       numInt: '',
-      phoneHouse: '',
       phone: '',
       zipcode: '',
       city: '',
@@ -47,9 +47,9 @@ class StudentsCatalog extends React.Component {
       lastNames: '',
       names: '',
       birthday: '',
+      belt: '',
+      school: '',
       ocupation: '',
-      belt: '1',
-      school: '1',
 
       weigth: '',
       heigth: '',
@@ -61,19 +61,17 @@ class StudentsCatalog extends React.Component {
       gateo: '',
       steps: '',
 
-      addressFam: '',
-      nameFather: '',
-      numExtFam: '',
-      numIntFam: '',
-      countyFam: '',
-      cityFam: '',
-      estadoFam: '',
-      zipcodeFam: '',
-      phoneHouseFam: '',
-      phoneFam: '',
-      teljob: '',
-      emailAddress: '',
-      job: '',
+      FamAddress: '',
+      FamNumExt: '',
+      FamNumInt: '',
+      FamPhone: '',
+      FamZipCode: '',
+      FamCity: '',
+      FamState: '',
+      FamCounty: '',
+      FamWorkPhone: '',
+      FamEmailAddress: '',
+      FamJob: '',
 
       inscripcion: '',
       objetivos: '',
@@ -128,17 +126,17 @@ class StudentsCatalog extends React.Component {
       gateo: this.state.gateo,
       steps: this.state.steps,
 
-      addressFam: this.state.addressFam,
-      numExt: this.state.numExtFam,
-      numInt: this.state.numIntFam,
-      phone: this.state.phoneFam,
-      zipcode: this.state.zipcodeFam,
-      city: this.state.cityFam,
-      estado: this.state.estadoFam,
-      county: this.state.countyFam,
-      teljob: this.state.teljob,
-      emailAddress: this.state.emailAddress,
-      job: this.state.job,
+      FamAddress: this.state.FamAddress,
+      FamNumExt: this.state.FamNumExt,
+      FamNumInt: this.state.FamNumInt,
+      FamPhone: this.state.FamPhone,
+      FamZipCode: this.state.FamZipCode,
+      FamCity: this.state.FamCity,
+      FamState: this.state.FamState,
+      FamCounty: this.state.FamCounty,
+      FamWorkPhone: this.state.FamWorkPhone,
+      FamEmailAddress: this.state.FamEmailAddress,
+      FamJob: this.state.FamJob,
 
       inscripcion: this.state.inscripcion,
       objetivos: this.state.objetivos,
@@ -159,6 +157,10 @@ class StudentsCatalog extends React.Component {
       .then(() => {
         console.log('Grabado', miRegistro)
         this.setState({
+          refreshTable: true,
+          formVisible: false,
+    
+
           address: '',
           numExt: '',
           numInt: '',
@@ -171,13 +173,9 @@ class StudentsCatalog extends React.Component {
           lastNames: '',
           names: '',
           birthday: '',
+          belt: '',
+          school: '',
           ocupation: '',
-          belt: '1',
-          school: '1',
-
-          studentID: null,
-          refreshTable: true,
-          formVisible: false,
 
           weigth: '',
           heigth: '',
@@ -189,19 +187,17 @@ class StudentsCatalog extends React.Component {
           gateo: '',
           steps: '',
 
-          addressFam: '',
-          nameFather: '',
-          numExtFam: '',
-          numIntFam: '',
-          countyFam: '',
-          cityFam: '',
-          estadoFam: '',
-          zipcodeFam: '',
-          phoneHouseFam: '',
-          phoneFam: '',
-          teljob: '',
-          emailAddress: '',
-          job: '',
+          FamAddress: '',
+          FamNumExt: '',
+          FamNumInt: '',
+          FamPhone: '',
+          FamZipCode: '',
+          FamCity: '',
+          FamState: '',
+          FamCounty: '',
+          FamWorkPhone: '',
+          FamEmailAddress: '',
+          FamJob: '',
 
           inscripcion: '',
           objetivos: '',
@@ -224,9 +220,13 @@ class StudentsCatalog extends React.Component {
     return firebase.database().ref('escuelas/Escuela/estudiantes/' + id).once('value')
       .then((snapshot) => {
         Student = snapshot.val();
+        console.log(Student);
         this.setState({
           studentID: id,
+
           address: Student.address,
+          numExt: Student.numExt,
+          numInt: Student.numInt,
           phone: Student.phone,
           zipcode: Student.zipcode,
           city: Student.city,
@@ -236,9 +236,9 @@ class StudentsCatalog extends React.Component {
           lastNames: Student.lastNames,
           names: Student.names,
           birthday: Student.birthday,
-          ocupation: Student.ocupation,
           belt: Student.belt,
           school: Student.school,
+          ocupation: Student.ocupation,
 
           weigth: Student.weigth,
           heigth: Student.heigth,
@@ -250,19 +250,18 @@ class StudentsCatalog extends React.Component {
           gateo: Student.gateo,
           steps: Student.steps,
 
-          addressFam: Student.addressFam,
-          nameFather: Student.nameFather,
-          numExtFam: Student.numExtFam,
-          numIntFam: Student.numIntFam,
-          countyFam: Student.countyFam,
-          cityFam: Student.cityFam,
-          estadoFam: Student.estadoFam,
-          zipcodeFam: Student.zipcodeFam,
-          phoneHouseFam: Student.phoneHouseFamFam,
-          phoneFam: Student.phoneFam,
-          teljob: Student.teljob,
-          emailAddress: Student.emailAddress,
-          job: Student.job,
+          FamAddress: Student.FamAddress,
+          FamNumExt: Student.FamNumExt,
+          FamNumInt: Student.FamNumInt,
+          FamPhone: Student.FamPhone,
+          FamZipCode: Student.FamZipCode,
+          FamCity: Student.FamCity,
+          FamState: Student.FamState,
+          FamCounty: Student.FamCounty,
+          FamWorkPhone: Student.FamWorkPhone,
+          FamEmailAddress: Student.FamEmailAddress,
+          FamJob: Student.FamJob,
+
           inscripcion: Student.inscripcion,
           objetivos: Student.objetivos,
           fuente: Student.fuente,
@@ -270,9 +269,7 @@ class StudentsCatalog extends React.Component {
           instalaciones: Student.instalaciones,
           ubicacion: Student.ubicacion,
           precio: Student.precio,
-
-
-        });
+         });
 
       });
   }
@@ -359,7 +356,7 @@ class StudentsCatalog extends React.Component {
     return (
       <div >
         <Modal
-          style={{ content: { top: 50, left: 50, right: 'auto', bottom: 'auto'} }}
+          style={{ content: { top: 50, left: 50, right: 'auto', bottom: 'auto' } }}
           isOpen={this.state.formVisible}
           onRequestClose={() => this.setState({ formVisible: false })}
           shouldCloseOnOverlayClick={true}
@@ -385,7 +382,7 @@ class StudentsCatalog extends React.Component {
                   <div key="myDiv">
                     <b>Datos del Alumno</b>
                     <AddStudent handleInputChange={this.handleInputChange} RecordValue={this.state} />
-                    <br/>
+                    <br />
                   </div>
                 </TabPanel>
                 <TabPanel style={{ backgroundColor: 'rgba(211, 207, 148)' }}>
@@ -413,8 +410,8 @@ class StudentsCatalog extends React.Component {
                   </p>
                 </TabPanel>
               </Tabs>
-              <div style={{height:'5px'}}></div>
-   
+              <div style={{ height: '5px' }}></div>
+
               <button onClick={() => this.setState({ formVisible: false })}>[X] Cancelar</button>
               <button onClick={() => this.SaveData()}>Guardar</button>
 
