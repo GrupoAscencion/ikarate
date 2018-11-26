@@ -202,8 +202,7 @@ class StudentsCatalog extends React.Component {
           FamCellPhone: '',
           FamEmailAddress: '',
           FamJob: '',
-
-      /* Encuesta */
+     /* Encuesta */
       WhyThisSchool: '',
       Goals: '',
       Source: '',
@@ -268,12 +267,10 @@ class StudentsCatalog extends React.Component {
           FamEmailAddress: Student.FamEmailAddress,
           FamJob: Student.FamJob,
 
-
                 /* Encuesta */
           WhyThisSchool: Student.WhyThisSchool,
           Goals: Student.Goals,
           Source: Student.Source,
-
         });
 
       });

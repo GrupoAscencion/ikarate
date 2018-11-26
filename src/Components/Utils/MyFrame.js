@@ -23,8 +23,6 @@ const MyFrame = (props) => {
         justifyContent:'center',
         border:'1px',
         borderWidth:1,
-
-
     }
        
     return (
