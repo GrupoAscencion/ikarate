@@ -20,11 +20,13 @@ const MyFrame = (props) => {
         margin: "0px",
         fontSize: '1.5em',
         fontFamily: 'comic',
-        justifyContent:'center',
+        justifyContent: 'center',
+        border: '1px',
+        borderWidth: 1,
         border:'1px',
         borderWidth:1,
-    }
-       
+}
+
     return (
         <div style={{ ...props.style }}>
             <div style={titleStyle}>{props.title}</div>

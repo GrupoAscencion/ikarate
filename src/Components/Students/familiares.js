@@ -5,8 +5,11 @@ const AddFamily = (props) => {
     return (
         <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+>>>>>>> 405ae5f6484c8b3d830ef6769aca1a0e88baface
+=======
 >>>>>>> 405ae5f6484c8b3d830ef6769aca1a0e88baface
             <MyFrame title="Dirección" style={{
                 display: 'flex',
@@ -121,7 +124,10 @@ const AddFamily = (props) => {
 
                 <br></br>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 405ae5f6484c8b3d830ef6769aca1a0e88baface
 =======
                   <MyFrame title="Dirección" style={{
                 display: 'flex',
@@ -221,6 +227,9 @@ const AddFamily = (props) => {
             />    
             <br></br>
 >>>>>>> fbabd2df987545f7a067e881a11773ac0c9f65bc
+<<<<<<< HEAD
+>>>>>>> 405ae5f6484c8b3d830ef6769aca1a0e88baface
+=======
 >>>>>>> 405ae5f6484c8b3d830ef6769aca1a0e88baface
             </MyFrame>
         </div>

@@ -202,10 +202,10 @@ class StudentsCatalog extends React.Component {
           FamCellPhone: '',
           FamEmailAddress: '',
           FamJob: '',
-     /* Encuesta */
-      WhyThisSchool: '',
-      Goals: '',
-      Source: '',
+          /* Encuesta */
+          WhyThisSchool: '',
+          Goals: '',
+          Source: '',
 
         })
       });
@@ -266,8 +266,7 @@ class StudentsCatalog extends React.Component {
           FamWorkPhone: Student.FamWorkPhone,
           FamEmailAddress: Student.FamEmailAddress,
           FamJob: Student.FamJob,
-
-                /* Encuesta */
+          /* Encuesta */
           WhyThisSchool: Student.WhyThisSchool,
           Goals: Student.Goals,
           Source: Student.Source,
@@ -363,7 +362,7 @@ class StudentsCatalog extends React.Component {
   render() {
     return (
       <div >
-        <br/>
+        <br />
         <Modal
           open={this.state.formVisible}
           onClose={() => this.setState({ formVisible: false })}
