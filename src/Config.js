@@ -7,5 +7,6 @@ export const  db_config = {
   messagingSenderId: "922396994640"
  };
  // databaseURL: "https://ikarate-218102.firebaseio.com",
- 
+ //databaseURL: "ws://localhost:5000",
+  
   

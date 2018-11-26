@@ -13,6 +13,7 @@ import Payments from './Components/Payments';
 import Schools from './Components/Schools';
 import Error from './Components/Error';
 import StudentsCatalog from './Components/Students/Catalogo';
+import CatalogoTeachers from './Components/Teachers/CatalogoTeachers';
 import Test from './Components/Test';
 
 
@@ -116,6 +117,7 @@ class App extends Component {
                 <Route path="/Payments" component={Payments} />
                 <Route path="/Schools" component={Schools} />
                 <Route path="/Students" component={StudentsCatalog} />
+                <Route path="/Senseis" component={CatalogoTeachers} />
                 <Route path="/Test" component={Test}/>
                 <Route component={Error} />
 

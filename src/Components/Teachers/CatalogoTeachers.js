@@ -184,7 +184,11 @@ class teachersCatalog extends React.Component {
       formVisible: true,
     })
   }
+  
+  /* 
+  <StudentsTable refreshNow={this.state.refreshTable} refreshComplete={this.refreshComplete} loadStudent={this.loadRecord} deleteStudent={this.removeRecord} />
 
+*/
   render() {
     { var formVisible = this.state.formVisible }
     return (
@@ -211,7 +215,6 @@ class teachersCatalog extends React.Component {
         </div>
         )}
         <button onClick={this.NewStudent}> + Nuevo sensei</button>
-        <StudentsTable refreshNow={this.state.refreshTable} refreshComplete={this.refreshComplete} loadStudent={this.loadRecord} deleteStudent={this.removeRecord} />
         <button onClick={()=> this.setState({formVisible: true})}>Ver </button>
         <button onClick={()=> this.setState({formVisible: false})}>Ocultar </button>
         {formVisible}

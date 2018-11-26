@@ -9,8 +9,8 @@ const MyInput = (props) => {
         alignContent: 'center',
 
         background: '#EEEEEE',
-        padding: "3px",
-        margin: "5px",
+        padding: "1px",
+        margin: "2px",
         fontSize: '1em',
         fontFamily: 'comic'
     };
