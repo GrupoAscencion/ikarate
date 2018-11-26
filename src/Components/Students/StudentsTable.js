@@ -51,12 +51,12 @@ class StudentsTable extends React.Component {
     var keys = Object.keys(myStudents)
     let fullName = "";
     let estudiantes;
-
+    console.log("Estudiantes: " , this.Students)
     this.Students = [];
     for (var i = 0; i < keys.length; i++) {
       var k = keys[i];
       estudiantes = myStudents[k];
-      fullName = estudiantes.lastNames + ", " + estudiantes.names;
+      fullName = estudiantes.LastName + ", " + estudiantes.FirstName;
       estudiantes.fullName = fullName;
       this.Students.push({ id: k, Student: estudiantes })
     }

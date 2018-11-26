@@ -6,20 +6,18 @@ import "react-table/react-table.css";
 import 'react-tabs/style/react-tabs.css'
 
 import * as firebase from 'firebase';
+import { CSSTransitionGroup } from 'react-transition-group';
+import Modal from 'react-responsive-modal';
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import AddAddress from './DomicilioEstudiante';
-import AddStudent from './FormaEstudiante';
+import AddAddress from './Domicilio';
+import AddStudent from './Generales';
+import AddMedicalData from "./DatosMedicos";
+import AddQuiz from "./Encuesta";
+import AddFamily from "./Familiares";
 import StudentsTable from "./StudentsTable";
-import AddMedicalData from "./DatosMedicosEstudiante";
-import Quiz from "./encuesta";
-import AddFamily from "./familiares";
+
 import "./Catalogo.css";
-
-import { CSSTransitionGroup } from 'react-transition-group';
-import Modal from 'react-modal';
-
-Modal.setAppElement('#root');
 
 class StudentsCatalog extends React.Component {
 
@@ -33,39 +31,39 @@ class StudentsCatalog extends React.Component {
       studentID: null,
       refreshTable: true,
       formVisible: false,
-
-
-      address: '',
-      numExt: '',
-      numInt: '',
-      phone: '',
-      zipcode: '',
-      city: '',
-      estado: '',
-      county: '',
-
-      lastNames: '',
-      names: '',
-      birthday: '',
-      belt: '',
-      school: '',
-      ocupation: '',
-
-      weigth: '',
-      heigth: '',
-      size: '',
-      blood: '',
-      sufferings: '',
-      part: '',
-      gestation: '',
-      gateo: '',
-      steps: '',
-
+      /* Datos Alumnno */
+      FirstName: '',
+      LastName: '',
+      Birthday: '',
+      Ocupation: '',
+      Belt: '',
+      Age: '',
+      /* Domicilio */
+      Street: '',
+      NumExt: '',
+      NumInt: '',
+      County: '',
+      City: '',
+      State: '',
+      ZipCode: '',
+      HomePhone: '',
+      WorkPhone: '',
+      CellPhone: '',
+      /* Datos Medicos */
+      Weigth: '',
+      Heigth: '',
+      Size: '',
+      BloodType: '',
+      MedicalHistory: '',
+      BirthType: '',
+      PregnancyDuration: '',
+      Crawl: '',
+      FirstTimeWalked: '',
+      /* Familiares */
       FamName: '',
       FamAddress: '',
       FamNumExt: '',
       FamNumInt: '',
-      FamPhone: '',
       FamZipCode: '',
       FamCity: '',
       FamState: '',
@@ -75,14 +73,10 @@ class StudentsCatalog extends React.Component {
       FamCellPhone: '',
       FamEmailAddress: '',
       FamJob: '',
-
-      inscripcion: '',
-      objetivos: '',
-      fuente: '',
-      master: '',
-      instalaciones: '',
-      ubicacion: '',
-      precio: '',
+      /* Encuesta */
+      WhyThisSchool: '',
+      Goals: '',
+      Source: '',
 
     };
 
@@ -103,37 +97,40 @@ class StudentsCatalog extends React.Component {
     else
       newPostKey = firebase.database().ref().child('escuelas/Escuela/estudiantes/').push().key;
     const miRegistro = {
-      address: this.state.address,
-      numExt: this.state.numExt,
-      numInt: this.state.numInt,
-      phone: this.state.phone,
-      zipcode: this.state.zipcode,
-      city: this.state.city,
-      estado: this.state.estado,
-      county: this.state.county,
+      FirstName: this.state.FirstName,
+      LastName: this.state.LastName,
+      Birthday: this.state.Birthday,
+      Ocupation: this.state.Ocupation,
+      Belt: this.state.Belt,
+      Age: this.state.Age,
 
-      lastNames: this.state.lastNames,
-      names: this.state.names,
-      birthday: this.state.birthday,
-      belt: this.state.belt,
-      school: this.state.school,
-      ocupation: this.state.ocupation,
+      Street: this.state.Street,
+      NumExt: this.state.NumExt,
+      NumInt: this.state.NumInt,
+      County: this.state.County,
+      City: this.state.City,
+      State: this.state.State,
+      ZipCode: this.state.ZipCode,
+      HomePhone: this.state.HomePhone,
+      WorkPhone: this.state.WorkPhone,
+      CellPhone: this.state.CellPhone,
 
-      weigth: this.state.weigth,
-      heigth: this.state.heigth,
-      size: this.state.size,
-      blood: this.state.blood,
-      sufferings: this.state.sufferings,
-      part: this.state.part,
-      gestation: this.state.gestation,
-      gateo: this.state.gateo,
-      steps: this.state.steps,
+      /* Datos Medicos */
+      Weigth: this.state.Weigth,
+      Heigth: this.state.Heigth,
+      Size: this.state.Size,
+      BloodType: this.state.BloodType,
+      MedicalHistory: this.state.MedicalHistory,
+      BirthType: this.state.BirthType,
+      PregnancyDuration: this.state.PregnancyDuration,
+      Crawl: this.state.Crawl,
+      FirstTimeWalked: this.state.FirstTimeWalked,
+
 
       FamName: this.state.FamName,
       FamAddress: this.state.FamAddress,
       FamNumExt: this.state.FamNumExt,
       FamNumInt: this.state.FamNumInt,
-      FamPhone: this.state.FamPhone,
       FamZipCode: this.state.FamZipCode,
       FamCity: this.state.FamCity,
       FamState: this.state.FamState,
@@ -165,39 +162,40 @@ class StudentsCatalog extends React.Component {
         this.setState({
           refreshTable: true,
           formVisible: false,
-    
 
-          address: '',
-          numExt: '',
-          numInt: '',
-          phone: '',
-          zipcode: '',
-          city: '',
-          estado: '',
-          county: '',
+          FirstName: '',
+          LastName: '',
+          Birthday: '',
+          Ocupation: '',
+          Belt: '',
+          Age: '',
 
-          lastNames: '',
-          names: '',
-          birthday: '',
-          belt: '',
-          school: '',
-          ocupation: '',
+          Street: '',
+          NumExt: '',
+          NumInt: '',
+          County: '',
+          City: '',
+          State: '',
+          ZipCode: '',
+          HomePhone: '',
+          WorkPhone: '',
+          CellPhone: '',
 
-          weigth: '',
-          heigth: '',
-          size: '',
-          blood: '',
-          sufferings: '',
-          part: '',
-          gestation: '',
-          gateo: '',
-          steps: '',
+          /* Datos Medicos */
+          Weigth: '',
+          Heigth: '',
+          Size: '',
+          BloodType: '',
+          MedicalHistory: '',
+          BirthType: '',
+          PregnancyDuration: '',
+          Crawl: '',
+          FirstTimeWalked: '',
 
           FamName: '',
           FamAddress: '',
           FamNumExt: '',
           FamNumInt: '',
-          FamPhone: '',
           FamZipCode: '',
           FamCity: '',
           FamState: '',
@@ -207,7 +205,7 @@ class StudentsCatalog extends React.Component {
           FamCellPhone: '',
           FamEmailAddress: '',
           FamJob: '',
-    
+
           inscripcion: '',
           objetivos: '',
           fuente: '',
@@ -233,40 +231,39 @@ class StudentsCatalog extends React.Component {
         this.setState({
           studentID: id,
 
-          address: Student.address,
-          numExt: Student.numExt,
-          numInt: Student.numInt,
-          phone: Student.phone,
-          zipcode: Student.zipcode,
-          city: Student.city,
-          estado: Student.estado,
-          county: Student.county,
+          Street: Student.Street,
+          NumExt: Student.NumExt,
+          NumInt: Student.NumInt,
+          County: Student.County,
+          City: Student.City,
+          State: Student.State,
+          ZipCode: Student.ZipCode,
+          HomePhone: Student.HomePhone,
+          WorkPhone: Student.WorkPhone,
+          CellPhone: Student.CellPhone,
 
-          lastNames: Student.lastNames,
-          names: Student.names,
-          birthday: Student.birthday,
-          belt: Student.belt,
-          school: Student.school,
-          ocupation: Student.ocupation,
+          FirstName: Student.FirstName,
+          LastName: Student.LastName,
+          Birthday: Student.Birthday,
+          Ocupation: Student.Ocupation,
+          Belt: Student.Belt,
+          Age: Student.Age,
 
-          weigth: Student.weigth,
-          heigth: Student.heigth,
-          size: Student.size,
-          blood: Student.blood,
-          sufferings: Student.sufferings,
-          part: Student.part,
-          gestation: Student.gestation,
-          gateo: Student.gateo,
-          steps: Student.steps,
-
-          FamEmailAddress: '',
-          FamJob: '',
+          /* Datos Medicos */
+          Weigth: Student.Weigth,
+          Heigth: Student.Heigth,
+          Size: Student.Size,
+          BloodType: Student.BloodType,
+          MedicalHistory: Student.MedicalHistory,
+          BirthType: Student.BirthType,
+          PregnancyDuration: Student.PregnancyDuration,
+          Crawl: Student.Crawl,
+          FirstTimeWalked: Student.FirstTimeWalked,
 
           FamName: Student.FamName,
           FamAddress: Student.FamAddress,
           FamNumExt: Student.FamNumExt,
           FamNumInt: Student.FamNumInt,
-          FamPhone: Student.FamPhone,
           FamZipCode: Student.FamZipCode,
           FamCity: Student.FamCity,
           FamState: Student.FamState,
@@ -284,7 +281,7 @@ class StudentsCatalog extends React.Component {
           instalaciones: Student.instalaciones,
           ubicacion: Student.ubicacion,
           precio: Student.precio,
-         });
+        });
 
       });
   }
@@ -313,33 +310,38 @@ class StudentsCatalog extends React.Component {
     this.setState({
       studentID: null,
 
-      address: '',
-      phone: '',
-      zipcode: '',
-      city: '',
-      estado: '',
-      county: '',
+      Street: '',
+      NumExt: '',
+      NumInt: '',
+      County: '',
+      City: '',
+      State: '',
+      ZipCode: '',
+      HomePhone: '',
+      WorkPhone: '',
+      CellPhone: '',
 
-      lastNames: '',
-      names: '',
-      birthday: '',
-      ocupation: '',
+      FirstName: '',
+      LastName: '',
+      Birthday: '',
+      Ocupation: '',
 
-      weigth: '',
-      heigth: '',
-      size: '',
-      blood: '',
-      sufferings: '',
-      part: '',
-      gestation: '',
-      gateo: '',
-      steps: '',
+      /* Datos Medicos */
+      Weigth: '',
+      Heigth: '',
+      Size: '',
+      BloodType: '',
+      MedicalHistory: '',
+      BirthType: '',
+      PregnancyDuration: '',
+      Crawl: '',
+      FirstTimeWalked: '',
+
 
       FamName: '',
       FamAddress: '',
       FamNumExt: '',
       FamNumInt: '',
-      FamPhone: '',
       FamZipCode: '',
       FamCity: '',
       FamState: '',
@@ -371,15 +373,12 @@ class StudentsCatalog extends React.Component {
   render() {
     return (
       <div >
+        <br/>
         <Modal
-          style={{ content: { top: 50, left: 50, right: 'auto', bottom: 'auto' } }}
-          isOpen={this.state.formVisible}
-          onRequestClose={() => this.setState({ formVisible: false })}
-          shouldCloseOnOverlayClick={true}
-          overflowY='auto'
-          maxHeight='100vh'
-          overlfow='scroll'
-          animationType={'slide'}>
+          open={this.state.formVisible}
+          onClose={() => this.setState({ formVisible: false })}
+          showCloseIcon={false}
+        >
           <CSSTransitionGroup
             transitionName="alta"
             transitionEnterTimeout={500}
@@ -395,35 +394,19 @@ class StudentsCatalog extends React.Component {
                 </TabList>
 
                 <TabPanel style={{ backgroundColor: 'rgba(226,222,222)' }}>
-                  <div key="myDiv">
-                    <b>Datos del Alumno</b>
-                    <AddStudent handleInputChange={this.handleInputChange} RecordValue={this.state} />
-                    <br />
-                  </div>
+                  <AddStudent handleInputChange={this.handleInputChange} RecordValue={this.state} />
                 </TabPanel>
                 <TabPanel style={{ backgroundColor: 'rgba(211, 207, 148)' }}>
-                  <div>
-                    <b>Domicilio</b>
-                    <AddAddress handleInputChange={this.handleInputChange} RecordValue={this.state} />
-                  </div>
+                  <AddAddress handleInputChange={this.handleInputChange} RecordValue={this.state} />
                 </TabPanel>
                 <TabPanel style={{ backgroundColor: 'rgba(193,255,191)' }}>
-                  <p>
-                    <b>Datos Medicos</b>
-                    <AddMedicalData handleInputChange={this.handleInputChange} RecordValue={this.state} />
-                  </p>
+                  <AddMedicalData handleInputChange={this.handleInputChange} RecordValue={this.state} />
                 </TabPanel>
                 <TabPanel style={{ backgroundColor: 'rgba(255,197,191)' }}>
-                  <p>
-                    <b>Familiare</b>
-                    <AddFamily handleInputChange={this.handleInputChange} RecordValue={this.state} />
-                  </p>
+                  <AddFamily handleInputChange={this.handleInputChange} RecordValue={this.state} />
                 </TabPanel>
                 <TabPanel style={{ backgroundColor: 'rgba(188,192,244)' }}>
-                  <p>
-                    <b>Encuesta</b>
-                    <Quiz handleInputChange={this.handleInputChange} RecordValue={this.state} />
-                  </p>
+                  <AddQuiz handleInputChange={this.handleInputChange} RecordValue={this.state} />
                 </TabPanel>
               </Tabs>
               <div style={{ height: '5px' }}></div>

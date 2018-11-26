@@ -1,6 +1,6 @@
 import React from "react";
 import MyInput from './../Utils/MyInput';
-
+import MyFrame from './../Utils/MyFrame';
 
 
 
@@ -9,35 +9,44 @@ import MyInput from './../Utils/MyInput';
 const AddStudent = (props) => {
     return (
         <div>
+            <MyFrame title="Generales">
             <MyInput label="Apellidos"
-                name="lastNames"
+                name="LastName"
                 type="text"
                 style={{ width: '200px' }}
                 onChange={props.handleInputChange}
-                value={props.RecordValue.lastNames}
+                value={props.RecordValue.LastName}
             />
             <MyInput label="Nombre(s)"
-                name="names"
+                name="FirstName"
                 type="text"
                 style={{ width: '200px' }}
                 onChange={props.handleInputChange}
-                value={props.RecordValue.names}
+                value={props.RecordValue.FirstName}
             />
 
             <MyInput label="Fecha de Nacimiento"
-                name="birthday"
+                name="Birthday"
                 type="date"
                 style={{ width: '200px' }}
                 onChange={props.handleInputChange}
-                value={props.RecordValue.birthday}
+                value={props.RecordValue.Birthday}
             />
-            <MyInput label="Ocupación"
-                name="ocupation"
+            <MyInput label="Actividad Principal"
+                name="Ocupation"
                 type="text"
                 style={{ width: '200px' }}
                 onChange={props.handleInputChange}
-                value={props.RecordValue.ocupation}
+                value={props.RecordValue.Ocupation}
             />
+            <MyInput label="Cinta"
+                name="Belt"
+                type="text"
+                style={{ width: '200px' }}
+                onChange={props.handleInputChange}
+                value={props.RecordValue.Belt}
+            />
+            </MyFrame>
         </div >
 
     );
