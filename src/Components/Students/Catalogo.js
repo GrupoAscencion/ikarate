@@ -203,10 +203,20 @@ class StudentsCatalog extends React.Component {
           FamEmailAddress: '',
           FamJob: '',
 
+<<<<<<< HEAD
       /* Encuesta */
       WhyThisSchool: '',
       Goals: '',
       Source: '',
+=======
+          inscripcion: '',
+          objetivos: '',
+          fuente: '',
+          master: '',
+          instalaciones: '',
+          ubicacion: '',
+          precio: '',
+>>>>>>> fbabd2df987545f7a067e881a11773ac0c9f65bc
 
         })
       });
@@ -268,12 +278,22 @@ class StudentsCatalog extends React.Component {
           FamEmailAddress: Student.FamEmailAddress,
           FamJob: Student.FamJob,
 
+<<<<<<< HEAD
 
                 /* Encuesta */
           WhyThisSchool: Student.WhyThisSchool,
           Goals: Student.Goals,
           Source: Student.Source,
 
+=======
+          inscripcion: Student.inscripcion,
+          objetivos: Student.objetivos,
+          fuente: Student.fuente,
+          master: Student.master,
+          instalaciones: Student.instalaciones,
+          ubicacion: Student.ubicacion,
+          precio: Student.precio,
+>>>>>>> fbabd2df987545f7a067e881a11773ac0c9f65bc
         });
 
       });

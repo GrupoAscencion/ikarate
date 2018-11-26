@@ -21,9 +21,12 @@ const MyFrame = (props) => {
         fontSize: '1.5em',
         fontFamily: 'comic',
         justifyContent:'center',
+<<<<<<< HEAD
         border:'1px',
         borderWidth:1,
 
+=======
+>>>>>>> fbabd2df987545f7a067e881a11773ac0c9f65bc
 
     }
        
